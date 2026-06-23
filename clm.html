@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>코생지(CLM) Daily Brief · 2026-06-21</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* =========================================================
+   코생지 Brief · CSS 토큰 (2단계: 정적 섹션 바인딩)
+   하드코딩 색 0 · 팩터/등락색은 양 테마 공통(의미색) · 표면/텍스트만 전환
+   ========================================================= */
+:root {
+  --bg:           #f4f5f7;
+  --surface:      #ffffff;
+  --surface-2:    #fafbfc;
+  --border:       #e7e9ee;
+  --border-strong:#d3d7df;
+  --shadow:       0 1px 2px rgba(16,24,40,.04), 0 1px 3px rgba(16,24,40,.06);
+
+  --text:         #16191f;
+  --text-secondary:#525b6b;
+  --text-muted:   #8b93a3;
+
+  --accent:       #0ea5e9;
+  --accent-strong:#0284c7;
+  --accent-soft:  #e0f2fe;
+  --brand-blue:   #337abd;  /* 블록미디어 스타일북 파랑 (제목 (CLM) 전용) */
+
+  --factor-onchain:  #2563eb;
+  --factor-social:   #f97316;
+  --factor-momentum: #16a34a;
+  --factor-na:       #9ca3af;
+
+  --up:   #d32f2f;
+  --down: #1d4ed8;
+  --up-soft:   rgba(211,47,47,.12);
+  --down-soft: rgba(29,78,216,.12);
+
+  --quad-interest: rgba(22,163,74,.07);
+  --quad-strong:   rgba(245,158,11,.07);
+  --quad-watch:    rgba(148,163,184,.045);
+  --quad-overheat: rgba(211,47,47,.06);
+
+  --grid: #e7e9ee;
+  --axis: #b6bcc8;
+  --series-alpha: #8b5cf6;
+
+  --radius:    10px;
+  --radius-lg: 14px;
+  --maxw:      1080px;
+  --gap:       16px;
+  --font: "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #0d1014;
+    --surface:      #15191f;
+    --surface-2:    #1b2027;
+    --border:       #272d36;
+    --border-strong:#343b46;
+    --shadow:       0 1px 2px rgba(0,0,0,.3), 0 1px 3px rgba(0,0,0,.4);
+
+    --text:         #eceef2;
+    --text-secondary:#a8b0bd;
+    --text-muted:   #6b7484;
+
+    --accent:       #38bdf8;
+    --accent-strong:#7dd3fc;
+    --accent-soft:  rgba(56,189,248,.14);
+
+    --factor-onchain:  #3b82f6;
+    --factor-social:   #fb923c;
+    --factor-momentum: #22c55e;
+
+    --up:   #f0594a;
+    --down: #4d82ff;
+    --up-soft:   rgba(240,89,74,.16);
+    --down-soft: rgba(77,130,255,.16);
+
+    --quad-interest: rgba(34,197,94,.10);
+    --quad-strong:   rgba(251,146,60,.09);
+    --quad-watch:    rgba(148,163,184,.07);
+    --quad-overheat: rgba(240,89,74,.08);
+
+    --grid: #272d36;
+    --axis: #4b525f;
+    --series-alpha: #a78bfa;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--text); font-family: var(--font);
+  font-size: 14px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px 64px; }
+
+/* ── 섹션 공통 ── */
+section { margin-top: 40px; }
+.sec-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 6px; }
+.sec-title { font-size: 19px; font-weight: 700; color: var(--text); margin: 0 0 16px; letter-spacing: -.01em; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 20px; }
+.placeholder { color: var(--text-muted); font-size: 13px; padding: 28px 0; text-align: center; border: 1px dashed var(--border-strong); border-radius: var(--radius); background: var(--surface-2); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+
+/* ── 팩터색 변수 매핑 (의미 있는 곳에만) ── */
+.f-onchain  { --fc: var(--factor-onchain); }
+.f-social   { --fc: var(--factor-social); }
+.f-momentum { --fc: var(--factor-momentum); }
+.f-na       { --fc: var(--factor-na); }
+
+/* ── 등락색 유틸 ── */
+.up   { color: var(--up); }
+.down { color: var(--down); }
+
+/* ── Driver 배지 (팩터색) ── */
+.driver-badge {
+  display: inline-flex; align-items: center; font-size: 11px; font-weight: 600;
+  color: var(--fc); background: color-mix(in srgb, var(--fc) 12%, transparent);
+  padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+}
+
+/* ── 로고 ── */
+.logo, .logo-ph { width: 24px; height: 24px; border-radius: 50%; flex: 0 0 24px; }
+.logo { object-fit: cover; background: var(--surface-2); }
+.logo-ph {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--surface-2); border: 1px solid var(--border);
+  font-size: 10px; font-weight: 700; color: var(--text-muted);
+}
+
+/* ── 헤더 ── */
+.header { padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+.header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--accent-strong); background: var(--accent-soft); padding: 5px 11px; border-radius: 999px; }
+.badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.nav { display: flex; gap: 18px; font-size: 13px; flex-wrap: wrap; }
+.nav a { color: var(--text-muted); text-decoration: none; }
+.nav a.active { color: var(--accent-strong); font-weight: 600; border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+.title { font-size: 30px; font-weight: 800; letter-spacing: -.02em; margin: 18px 0 6px; }
+.title .accent { color: var(--brand-blue); }
+.publish { font-size: 13px; color: var(--text-muted); }
+.publish strong { color: var(--text-secondary); font-weight: 600; }
+.publish-note { font-size: 12px; color: var(--text-muted); margin-top: 5px; opacity: .85; }
+.publish-note::before { content: "ⓘ"; margin-right: 5px; opacity: .7; }
+
+/* ── ② 핵심 요약 ── */
+.summary-row { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+.summary-row:last-child { border-bottom: none; }
+.summary-tag { flex: 0 0 86px; font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--accent-strong); }
+.summary-text { color: var(--text); font-size: 14.5px; }
+
+/* ── ③ 대시보드 ── */
+.stat { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px dashed var(--border); }
+.stat:last-child { border-bottom: none; }
+.stat-k { color: var(--text-secondary); font-size: 13px; }
+.stat-v { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat-v.muted { color: var(--text-muted); font-weight: 600; }
+.dash-card-title { font-size: 12px; font-weight: 700; color: var(--text-muted); margin: 0 0 8px; letter-spacing: .04em; }
+/* 섹션 헤더 우측 노트 (예: 24h 기준) */
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 16px; }
+.sec-head .sec-title { margin: 0; }
+.sec-note { font-size: 12px; color: var(--text-muted); font-weight: 600; white-space: nowrap; }
+/* 등락 카드 3단 위계 (캡션 / 종목 볼드 + 등락색 값) */
+.rank-stat { padding: 9px 0; border-bottom: 1px dashed var(--border); }
+.rank-stat:last-child { border-bottom: none; }
+.rank-cap { display: block; font-size: 11px; color: var(--text-muted); margin-bottom: 3px; }
+.rank-main { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.rank-sym { font-size: 15px; font-weight: 700; color: var(--text); }
+.rank-val { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ── ④ 메이저 카드 ── */
+.major { border-left: 3px solid var(--fc); }
+.major-top { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.major-sym { font-size: 15px; font-weight: 700; }
+.major-clm { font-size: 32px; font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.major-sub { display: flex; gap: 16px; margin: 6px 0 10px; font-size: 13px; font-variant-numeric: tabular-nums; }
+.major-sub .k { color: var(--text-muted); }
+.major-comment { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; }
+.spacer { flex: 1; }
+
+/* ── ⑤ Top10 테이블 ── */
+.table-scroll { overflow-x: auto; }
+table.top10 { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+table.top10 th { text-align: left; font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: .04em; padding: 0 12px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+table.top10 td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+table.top10 tr:last-child td { border-bottom: none; }
+.t-rank { color: var(--text-muted); font-variant-numeric: tabular-nums; width: 32px; }
+.t-sym { display: flex; align-items: center; gap: 8px; font-weight: 700; }
+.t-clm { font-weight: 700; font-variant-numeric: tabular-nums; }
+.t-rsi { color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+.t-comment { color: var(--text-secondary); font-size: 12.5px; max-width: 280px; }
+.t-h24 { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ── ⑥ 기여도 누적 가로막대 ── */
+.legend { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.legend .key { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-secondary); }
+.legend .swatch { width: 11px; height: 11px; border-radius: 3px; }
+.contrib-row { display: flex; align-items: center; gap: 12px; padding: 7px 0; }
+.contrib-sym { flex: 0 0 56px; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.contrib-bar { flex: 1; display: flex; height: 22px; border-radius: 6px; overflow: hidden; background: var(--surface-2); }
+.contrib-seg { display: flex; align-items: center; justify-content: center; min-width: 0; height: 100%; font-size: 10.5px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; }
+.contrib-seg.onchain  { background: var(--factor-onchain); }
+.contrib-seg.social   { background: var(--factor-social); }
+.contrib-seg.momentum { background: var(--factor-momentum); }
+
+/* ── ⑦ 매트릭스 (인라인 SVG) ── */
+svg.matrix { width: 100%; height: auto; display: block; font-family: var(--font); }
+.q-interest { fill: var(--quad-interest); }
+.q-strong   { fill: var(--quad-strong); }
+.q-watch    { fill: var(--quad-watch); }
+.q-overheat { fill: var(--quad-overheat); }
+.m-grid { stroke: var(--axis); stroke-dasharray: 4 4; stroke-width: 1; }
+.m-axis { stroke: var(--border); stroke-width: 1; }
+.m-tick { fill: var(--text-muted); font-size: 10px; font-variant-numeric: tabular-nums; }
+.m-axis-title { fill: var(--text-muted); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.q-label { fill: var(--text-secondary); font-size: 11px; font-weight: 700; letter-spacing: .01em; }
+.q-sub   { fill: var(--text-muted); font-size: 9.5px; }
+.bub { stroke: var(--surface); stroke-width: 2.5; fill-opacity: .9; }
+.bub.up   { fill: var(--up); }
+.bub.down { fill: var(--down); }
+.bub-label { fill: var(--text-secondary); font-size: 10px; font-weight: 500; }
+.m-legend { display: flex; justify-content: flex-end; gap: 16px; margin-top: 10px; font-size: 12px; color: var(--text-secondary); }
+.m-legend .key { display: inline-flex; align-items: center; gap: 6px; }
+.m-legend .ldot { width: 10px; height: 10px; border-radius: 50%; }
+.m-legend .ldot.up { background: var(--up); }
+.m-legend .ldot.down { background: var(--down); }
+
+/* ── ⑧ 시계열 (인라인 SVG 이중축 + 토글) ── */
+.ts-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+.ts-legend { display: flex; gap: 16px; font-size: 12px; color: var(--text-secondary); flex-wrap: wrap; }
+.ts-legend .key { display: inline-flex; align-items: center; gap: 6px; }
+.ts-legend .lline { width: 16px; height: 0; border-top: 2px solid; }
+.ts-tabs { display: flex; gap: 6px; }
+.ts-tab { font-size: 12px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-secondary); cursor: pointer; font-family: var(--font); }
+.ts-tab.active { background: var(--accent-soft); color: var(--accent-strong); border-color: transparent; font-weight: 600; }
+svg.ts { width: 100%; height: auto; display: block; font-family: var(--font); }
+.ts-group { display: none; }
+.ts-group.show { display: inline; }
+.ts-line-cohort { fill: none; stroke: var(--accent); stroke-width: 2; }
+.ts-line-alpha  { fill: none; stroke: var(--series-alpha); stroke-width: 1.5; }
+.ts-axis { stroke: var(--border-strong); stroke-width: 1; }
+.ts-zero { stroke: var(--axis); stroke-dasharray: 3 3; stroke-width: 1; }
+.ts-tick { fill: var(--text-muted); font-size: 9.5px; }
+.ts-tick.cohort { fill: var(--accent-strong); }
+.ts-tick.alpha  { fill: var(--series-alpha); }
+/* 호버 인터랙션 */
+.ts-hit { fill: transparent; cursor: crosshair; }
+.ts-cross { stroke: var(--text-muted); stroke-width: 1; stroke-dasharray: 3 3; pointer-events: none; }
+.ts-dot-cohort { fill: var(--accent); stroke: var(--surface); stroke-width: 1.5; pointer-events: none; }
+.ts-dot-alpha  { fill: var(--series-alpha); stroke: var(--surface); stroke-width: 1.5; pointer-events: none; }
+.ts-tip { position: absolute; z-index: 5; pointer-events: none; background: var(--surface); border: 1px solid var(--border-strong); border-radius: 8px; padding: 8px 10px; font-size: 11.5px; min-width: 134px; box-shadow: 0 4px 14px rgba(0,0,0,.14); }
+.ts-tip .d { font-weight: 700; color: var(--text); font-size: 11px; margin-bottom: 5px; }
+.ts-tip .r { display: flex; align-items: center; gap: 6px; color: var(--text-secondary); margin-top: 3px; }
+.ts-tip .r b { margin-left: auto; color: var(--text); font-weight: 700; font-variant-numeric: tabular-nums; }
+.ts-tip .sw { width: 8px; height: 8px; border-radius: 2px; flex: 0 0 auto; }
+.ts-disclosure { margin-top: 14px; padding: 11px 14px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; font-size: 11.5px; color: var(--text-muted); line-height: 1.7; }
+.ts-disclosure .note-label { display: inline-block; margin-right: 8px; padding: 1px 7px; border-radius: 4px; background: var(--border); color: var(--text-secondary); font-size: 10.5px; font-weight: 700; letter-spacing: .02em; vertical-align: 1px; }
+
+/* ── ⑨ 코생지란 ── */
+.about-grid { display: grid; grid-template-columns: 1.8fr 1fr; gap: var(--gap); align-items: stretch; }
+.about-body { display: flex; flex-direction: column; }
+.about-body p { margin: 0 0 12px; color: var(--text-secondary); font-size: 13.5px; line-height: 1.7; }
+.about-body p:last-of-type { margin-bottom: 0; }
+.about-body strong { color: var(--text); font-weight: 700; }
+.about-side { display: flex; flex-direction: column; gap: 2px; }
+.about-side .k { font-size: 10.5px; color: var(--text-muted); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.about-side .k:not(:first-child) { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.about-side .v { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; margin-top: 4px; }
+.about-side .muted-note { color: var(--text-muted); font-size: 11px; }
+.about-verify { margin-top: var(--gap); padding: 15px 18px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg); display: flex; gap: 14px; align-items: flex-start; }
+.about-verify .verify-label { flex: 0 0 auto; font-size: 10.5px; font-weight: 700; letter-spacing: .05em; color: var(--text-secondary); padding: 3px 10px; background: var(--border); border-radius: 5px; }
+.about-verify p { margin: 0; font-size: 12.5px; line-height: 1.75; color: var(--text-secondary); }
+
+/* ── ⑩ 푸터 ── */
+.footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 12px; line-height: 1.7; }
+.footer-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.footer-note { color: var(--text-muted); }
+.footer .brand { font-weight: 700; color: var(--text-secondary); white-space: nowrap; }
+
+/* ── 반응형 ── */
+@media (max-width: 760px) {
+  .wrap { padding: 24px 16px 48px; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+  .title { font-size: 24px; }
+  .nav { display: none; }
+  .t-comment { display: none; } /* 모바일: 코멘트 숨김(추후 카드형) */
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ① 헤더 -->
+  <header class="header">
+    <div class="header-top">
+      <span class="badge"><span class="dot"></span>코인 생명력 지표</span>
+      <nav class="nav">
+        <a href="#">KRW Market</a>
+        <a href="#">BM20 Index</a>
+        <a href="#">US ETF Flow</a>
+        <a href="#">History</a>
+        <a href="#" class="active">CLM</a>
+      </nav>
+    </div>
+    <h1 class="title">코생지<span class="accent">(CLM)</span> Daily Brief</h1>
+    <p class="publish">분석 기준일 <strong>2026-06-21</strong> · 2026-06-23 오전 03:00 갱신 (KST)</p>
+    <p class="publish-note">온체인 활성 데이터가 확정된 가장 최근 시점 기준입니다 (확정까지 약 1일 소요)</p>
+  </header>
+
+  <!-- ② 핵심 요약 -->
+  <section>
+    <p class="sec-label">Summary</p>
+    <h2 class="sec-title">핵심 요약</h2>
+    <div class="card">
+      <div class="summary-row"><div class="summary-tag">MARKET</div><div class="summary-text">코생지 TOP 10의 24시간 평균 변동은 +0.94%로, 비트코인 대비 +2.81%p 높았다.</div></div>
+      <div class="summary-row"><div class="summary-tag">PATTERN</div><div class="summary-text">TOP 10 중 1개 종목이 과매도 구간(RSI 35 이하)에 분포하며, 소셜 관심도가 우세한 종목이 다수다.</div></div>
+      <div class="summary-row"><div class="summary-tag">FOCUS</div><div class="summary-text">코생지가 높으면서 과매도 구간에 함께 해당하는 종목은 없다.</div></div>
+    </div>
+  </section>
+
+  <!-- ③ 시장 대시보드 -->
+  
+  <section>
+    <p class="sec-label">CLM Performance</p>
+    <div class="sec-head">
+      <h2 class="sec-title">코생지 퍼포먼스</h2>
+      <span class="sec-note">24h 기준</span>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <p class="dash-card-title">코생지 수익률 종합</p>
+        <div class="stat"><span class="stat-k">TOP 10 평균</span><span class="stat-v up">+0.94%</span></div>
+        <div class="stat"><span class="stat-k">중위 수익률</span><span class="stat-v up">+0.66%</span></div>
+        <div class="stat"><span class="stat-k">1위 제외 평균</span><span class="stat-v up">+0.44%</span></div>
+      </div>
+      <div class="card">
+        <p class="dash-card-title">종목 등락</p>
+        <div class="rank-stat">
+          <span class="rank-cap">수익률 상위</span>
+          <span class="rank-main"><span class="rank-sym">SOL</span><span class="rank-val up">+5.46%</span></span>
+        </div>
+        <div class="rank-stat">
+          <span class="rank-cap">수익률 하위</span>
+          <span class="rank-main"><span class="rank-sym">TRUMP</span><span class="rank-val down">-2.06%</span></span>
+        </div>
+      </div>
+      <div class="card">
+        <p class="dash-card-title">시장 비교</p>
+        <div class="stat"><span class="stat-k">비트코인</span><span class="stat-v down">-1.87%</span></div>
+        <div class="stat"><span class="stat-k">알파 (vs BTC)</span><span class="stat-v up">+2.81%p</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ 메이저 카드 -->
+  <section>
+    <p class="sec-label">Majors</p>
+    <h2 class="sec-title">메이저 디지털자산</h2>
+    <div class="grid-3">
+      
+      <div class="card major f-social">
+        <div class="major-top">
+          <span class="logo-ph">ET</span>
+          <span class="major-sym">ETH</span>
+          <span class="spacer"></span>
+          <span class="driver-badge f-social">소셜</span>
+        </div>
+        <div class="major-clm">1.79</div>
+        <div class="major-sub">
+          <span class="up">+1.93%</span>
+          <span><span class="k">RSI</span> 67</span>
+        </div>
+        <div class="major-comment">소셜 관심도가 높음</div>
+      </div>
+      
+      <div class="card major f-social">
+        <div class="major-top">
+          <span class="logo-ph">SO</span>
+          <span class="major-sym">SOL</span>
+          <span class="spacer"></span>
+          <span class="driver-badge f-social">소셜</span>
+        </div>
+        <div class="major-clm">1.90</div>
+        <div class="major-sub">
+          <span class="up">+5.46%</span>
+          <span><span class="k">RSI</span> 70</span>
+        </div>
+        <div class="major-comment">소셜 관심도가 높으며 가격은 과열 구간</div>
+      </div>
+      
+      <div class="card major f-social">
+        <div class="major-top">
+          <span class="logo-ph">XR</span>
+          <span class="major-sym">XRP</span>
+          <span class="spacer"></span>
+          <span class="driver-badge f-social">소셜</span>
+        </div>
+        <div class="major-clm">0.91</div>
+        <div class="major-sub">
+          <span class="up">+1.45%</span>
+          <span><span class="k">RSI</span> 57</span>
+        </div>
+        <div class="major-comment">소셜 관심도가 높음</div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ⑤ Top10 테이블 -->
+  
+  <section>
+    <p class="sec-label">TOP 10</p>
+    <h2 class="sec-title">코생지 TOP 10</h2>
+    <div class="card table-scroll">
+      <table class="top10">
+        <thead><tr>
+          <th>순위</th><th>디지털자산</th><th>코생지</th><th>24h</th><th>RSI</th><th>우세 팩터</th><th>코멘트</th>
+        </tr></thead>
+        <tbody>
+        
+          <tr>
+            <td class="t-rank">1</td>
+            <td><div class="t-sym"><span class="logo-ph">SO</span>SOL</div></td>
+            <td class="t-clm">1.90</td>
+            <td class="t-h24 up">+5.5%</td>
+            <td class="t-rsi">70</td>
+            <td><span class="driver-badge f-social">소셜</span></td>
+            <td class="t-comment">소셜 관심도가 높으며 가격은 과열 구간</td>
+          </tr>
+        
+          <tr>
+            <td class="t-rank">2</td>
+            <td><div class="t-sym"><span class="logo-ph">ET</span>ETH</div></td>
+            <td class="t-clm">1.79</td>
+            <td class="t-h24 up">+1.9%</td>
+            <td class="t-rsi">67</td>
+            <td><span class="driver-badge f-social">소셜</span></td>
+            <td class="t-comment">소셜 관심도가 높음</td>
+          </tr>
+        
+          <tr>
+            <td class="t-rank">3</td>
+            <td><div class="t-sym"><span class="logo-ph">AT</span>ATOM</div></td>
+            <td class="t-clm">1.74</td>
+            <td class="t-h24 down">-0.2%</td>
+            <td class="t-rsi">61</td>
+            <td><span class="driver-badge f-social">소셜</span></td>
+            <td class="t-comment">소셜 관심도가 높음</td>
+          </tr>
+        
+          <tr>
+            <td class="t-rank">4</td>
+            <td><div class="t-sym"><span class="logo-ph">TR</span>TRX</div></td>
+            <td class="t-clm">1.69</td>
+            <td class="t-h24 up">+0.9%</td>
+            <td class="t-rsi">54</td>
+            <td><span class="driver-badge f-social">소셜</span></td>
+            <td class="t-comment">소셜 관심도가 높음</td>
+          </tr>
+        
+          <tr>
+            <td class="t-rank">5</td>
+            <td><div class="t-sym"><span class="logo-ph">TR</span>TRUMP</div></td>
+            <td class="t-clm">1.23</td>
+            <td class="t-h24 down">-2.1%</td>
+            <td class="t-rsi">61</td>
+            <td><span class="driver-badge f-social">소셜</span></td>
+            <td class="t-comment">소셜 관심도가 높음</td>
+          </tr>
+        
+          <tr>
+            <td class="t-rank">6</td>
+            <td><div class="t-sym"><span class="logo-ph">CC</span>CC</div></td>
+            <td class="t-clm">1.19</td>
+            <td class="t-h24 down">-0.7%</td>
+            <td class="t-rsi">29</td>
+            <td><span class="driver-badge f-social">소셜</span></td>
+            <td class="t-comment">소셜 관심도가 높으나 가격은 과매도 구간</td>
+          </tr>
+        
+          <tr>
+            <td class="t-rank">7</td>
+            <td><div class="t-sym"><span class="logo-ph">XR</span>XRP</div></td>
+            <td class="t-clm">0.91</td>
+            <td class="t-h24 up">+1.4%</td>
+            <td class="t-rsi">57</td>
+            <td><span class="driver-badge f-social">소셜</span></td>
+            <td class="t-comment">소셜 관심도가 높음</td>
+          </tr>
+        
+          <tr>
+            <td class="t-rank">8</td>
+            <td><div class="t-sym"><span class="logo-ph">SH</span>SHIB</div></td>
+            <td class="t-clm">0.85</td>
+            <td class="t-h24 up">+0.0%</td>
+            <td class="t-rsi">59</td>
+            <td><span class="driver-badge f-onchain">온체인</span></td>
+            <td class="t-comment">온체인 활동이 활발함</td>
+          </tr>
+        
+          <tr>
+            <td class="t-rank">9</td>
+            <td><div class="t-sym"><span class="logo-ph">BO</span>BONK</div></td>
+            <td class="t-clm">0.78</td>
+            <td class="t-h24 up">+2.3%</td>
+            <td class="t-rsi">63</td>
+            <td><span class="driver-badge f-onchain">온체인</span></td>
+            <td class="t-comment">온체인 활동이 활발함</td>
+          </tr>
+        
+          <tr>
+            <td class="t-rank">10</td>
+            <td><div class="t-sym"><span class="logo-ph">PE</span>PEPE</div></td>
+            <td class="t-clm">0.72</td>
+            <td class="t-h24 up">+0.5%</td>
+            <td class="t-rsi">62</td>
+            <td><span class="driver-badge f-onchain">온체인</span></td>
+            <td class="t-comment">온체인 활동이 활발함</td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ⑥ 기여도 누적 가로막대 -->
+  <section>
+    <p class="sec-label">FACTORS</p>
+    <h2 class="sec-title">코생지 TOP 10 기여도</h2>
+    <div class="card">
+      <div class="legend">
+        <span class="key"><span class="swatch" style="background:var(--factor-onchain)"></span>온체인</span>
+        <span class="key"><span class="swatch" style="background:var(--factor-social)"></span>소셜</span>
+        <span class="key"><span class="swatch" style="background:var(--factor-momentum)"></span>모멘텀</span>
+      </div>
+      
+      <div class="contrib-row">
+        <span class="contrib-sym">SOL</span>
+        <div class="contrib-bar">
+          <div class="contrib-seg onchain" style="width:39%">39</div>
+          <div class="contrib-seg social" style="width:60%">60</div>
+          <div class="contrib-seg momentum" style="width:1%"></div>
+        </div>
+      </div>
+      
+      <div class="contrib-row">
+        <span class="contrib-sym">ETH</span>
+        <div class="contrib-bar">
+          <div class="contrib-seg onchain" style="width:35%">35</div>
+          <div class="contrib-seg social" style="width:65%">65</div>
+          
+        </div>
+      </div>
+      
+      <div class="contrib-row">
+        <span class="contrib-sym">ATOM</span>
+        <div class="contrib-bar">
+          
+          <div class="contrib-seg social" style="width:100%">100</div>
+          
+        </div>
+      </div>
+      
+      <div class="contrib-row">
+        <span class="contrib-sym">TRX</span>
+        <div class="contrib-bar">
+          
+          <div class="contrib-seg social" style="width:100%">100</div>
+          
+        </div>
+      </div>
+      
+      <div class="contrib-row">
+        <span class="contrib-sym">TRUMP</span>
+        <div class="contrib-bar">
+          <div class="contrib-seg onchain" style="width:6%"></div>
+          <div class="contrib-seg social" style="width:86%">86</div>
+          <div class="contrib-seg momentum" style="width:8%">8</div>
+        </div>
+      </div>
+      
+      <div class="contrib-row">
+        <span class="contrib-sym">CC</span>
+        <div class="contrib-bar">
+          
+          <div class="contrib-seg social" style="width:100%">100</div>
+          
+        </div>
+      </div>
+      
+      <div class="contrib-row">
+        <span class="contrib-sym">XRP</span>
+        <div class="contrib-bar">
+          <div class="contrib-seg onchain" style="width:31%">31</div>
+          <div class="contrib-seg social" style="width:69%">69</div>
+          
+        </div>
+      </div>
+      
+      <div class="contrib-row">
+        <span class="contrib-sym">SHIB</span>
+        <div class="contrib-bar">
+          <div class="contrib-seg onchain" style="width:100%">100</div>
+          
+          
+        </div>
+      </div>
+      
+      <div class="contrib-row">
+        <span class="contrib-sym">BONK</span>
+        <div class="contrib-bar">
+          <div class="contrib-seg onchain" style="width:100%">100</div>
+          
+          
+        </div>
+      </div>
+      
+      <div class="contrib-row">
+        <span class="contrib-sym">PEPE</span>
+        <div class="contrib-bar">
+          <div class="contrib-seg onchain" style="width:100%">100</div>
+          
+          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- ⑦ 매트릭스 (인라인 SVG) -->
+  
+  
+  
+  
+  
+  
+  
+  
+  <section>
+    <p class="sec-label">Matrix</p>
+    <h2 class="sec-title">코생지 TOP 10 매트릭스</h2>
+    <div class="card">
+      <svg class="matrix" viewBox="0 0 800 440" preserveAspectRatio="xMidYMid meet" role="img" aria-label="코생지 RSI 매트릭스">
+        <!-- 사분면 틴트 -->
+        <rect class="q-interest" x="52" y="20" width="482.7" height="124.0"/>
+        <rect class="q-strong"   x="534.7" y="20" width="241.3" height="124.0"/>
+        <rect class="q-watch"    x="52" y="144.0" width="482.7" height="248.0"/>
+        <rect class="q-overheat" x="534.7" y="144.0" width="241.3" height="248.0"/>
+
+        <!-- 기준선 (RSI 70 세로 / CLM 1.5 가로) -->
+        <line class="m-grid" x1="534.7" y1="20" x2="534.7" y2="392"/>
+        <line class="m-grid" x1="52" y1="144.0" x2="776" y2="144.0"/>
+
+        <!-- 축 -->
+        <line class="m-axis" x1="52" y1="392" x2="776" y2="392"/>
+        <line class="m-axis" x1="52" y1="20" x2="52" y2="392"/>
+        
+          
+          <text class="m-tick" x="52.0" y="406" text-anchor="middle">10</text>
+        
+          
+          <text class="m-tick" x="253.1" y="406" text-anchor="middle">35</text>
+        
+          
+          <text class="m-tick" x="373.8" y="406" text-anchor="middle">50</text>
+        
+          
+          <text class="m-tick" x="534.7" y="406" text-anchor="middle">70</text>
+        
+          
+          <text class="m-tick" x="776.0" y="406" text-anchor="middle">100</text>
+        
+        
+          
+          <text class="m-tick" x="44" y="395.0" text-anchor="end">0.5</text>
+        
+          
+          <text class="m-tick" x="44" y="271.0" text-anchor="end">1.0</text>
+        
+          
+          <text class="m-tick" x="44" y="147.0" text-anchor="end">1.5</text>
+        
+          
+          <text class="m-tick" x="44" y="23.0" text-anchor="end">2.0</text>
+        
+        
+        <text class="m-axis-title" x="414.0" y="430" text-anchor="middle">RSI</text>
+        
+        <text class="m-axis-title" transform="rotate(-90 16 206.0)" x="16" y="206.0" text-anchor="middle">CLM</text>
+
+        <!-- 사분면 라벨 (좌측 분면은 데이터 없는 안쪽=구분선 옆에 우측정렬 → 버블 라벨과 충돌 회피) -->
+        <text class="q-label" x="520.7" y="38" text-anchor="end">관심</text>
+        <text class="q-sub"   x="520.7" y="51" text-anchor="end">생명력 높고 과열 낮음</text>
+        <text class="q-label" x="764" y="38" text-anchor="end">강세 관찰</text>
+        <text class="q-sub"   x="764" y="51" text-anchor="end">생명력 높지만 가격 부담</text>
+        <text class="q-label" x="520.7" y="368" text-anchor="end">관망</text>
+        <text class="q-sub"   x="520.7" y="381" text-anchor="end">참여도·모멘텀 약함</text>
+        <text class="q-label" x="764" y="368" text-anchor="end">과열 주의</text>
+        <text class="q-sub"   x="764" y="381" text-anchor="end">변동성 확대 구간</text>
+
+        <!-- 버블 (등락색). 라벨 겹침 제거(결정적, JS 불필요):
+             ① 세로 스택: 위→아래 순 최소 15px 간격 → 라벨끼리 안 겹침.
+             ② 가로 충돌: 라벨이 같은 행(±11px)의 다른 버블을 침범하면, 시작 x를 그 버블 오른쪽으로 밀어
+                자연스러운 높이에서 빈 공간에 배치(우측 빈칸 활용). 우측 끝이 화면을 넘으면 좌측 배치로 폴백.
+             → 세로 클러스터(예: 06-10 좌하단)·가로 클러스터(예: 05-13)든 라벨이 버블에 안 가려짐.
+             버블은 실제 좌표 유지, 변위된 라벨엔 버블→라벨 가는 연결선. -->
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+          
+          
+          
+          
+          
+          
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+          
+          
+          
+          
+          
+          
+          <circle class="bub up" cx="536.3" cy="43.9" r="9"/>
+          <text class="bub-label" x="547.3" y="46.9" text-anchor="start">1위 SOL +5.5%</text>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+          
+          
+          
+          
+          
+          
+          <circle class="bub up" cx="511.3" cy="71.9" r="9"/>
+          <text class="bub-label" x="522.3" y="74.9" text-anchor="start">2위 ETH +1.9%</text>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+          
+          
+          
+          
+          
+          
+          <circle class="bub down" cx="463.9" cy="85.6" r="9"/>
+          <text class="bub-label" x="474.9" y="89.9" text-anchor="start">3위 ATOM -0.2%</text>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+          
+          
+          
+          
+          
+          
+          <circle class="bub up" cx="402.7" cy="98.0" r="9"/>
+          <text class="bub-label" x="413.7" y="104.9" text-anchor="start">4위 TRX +0.9%</text>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+          
+          
+          
+          
+          
+          
+          <circle class="bub down" cx="459.0" cy="209.8" r="9"/>
+          <text class="bub-label" x="470.0" y="212.8" text-anchor="start">5위 TRUMP -2.1%</text>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+          
+          
+          
+          
+          
+          
+            <line class="m-grid" style="stroke-dasharray:none;stroke-width:.8" x1="213.5" y1="220.5" x2="213.5" y2="224.8"/>
+          
+          <circle class="bub down" cx="206.5" cy="220.5" r="9"/>
+          <text class="bub-label" x="217.5" y="227.8" text-anchor="start">6위 CC -0.7%</text>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+          
+          
+          
+          
+          
+          
+          <circle class="bub up" cx="426.9" cy="290.4" r="9"/>
+          <text class="bub-label" x="437.9" y="293.4" text-anchor="start">7위 XRP +1.5%</text>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+          
+          
+          
+          
+          
+          
+          <circle class="bub up" cx="447.8" cy="305.6" r="9"/>
+          <text class="bub-label" x="458.8" y="308.6" text-anchor="start">8위 SHIB +0.0%</text>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+          
+          
+          
+          
+          
+          
+          <circle class="bub up" cx="475.1" cy="322.4" r="9"/>
+          <text class="bub-label" x="486.1" y="325.4" text-anchor="start">9위 BONK +2.3%</text>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+          
+          
+          
+          
+          
+          
+          <circle class="bub up" cx="471.9" cy="337.3" r="9"/>
+          <text class="bub-label" x="482.9" y="340.4" text-anchor="start">10위 PEPE +0.4%</text>
+        
+      </svg>
+      <div class="m-legend">
+        <span class="key"><span class="ldot up"></span>상승</span>
+        <span class="key"><span class="ldot down"></span>하락</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧ 시계열 (인라인 SVG 이중축 + vanilla JS 구간토글 + ★디스클로저) -->
+  
+  <section>
+    <p class="sec-label">Trend</p>
+    <h2 class="sec-title">코생지 TOP 10 평균 추이</h2>
+    
+    <div class="card">
+      <div class="ts-head">
+        <div class="ts-legend">
+          <span class="key"><span class="lline" style="border-color:var(--accent)"></span>코생지 TOP 10 평균</span>
+          <span class="key"><span class="lline" style="border-color:var(--series-alpha)"></span>알파</span>
+        </div>
+        <div class="ts-tabs">
+          <button class="ts-tab active" data-range="1y">1년</button>
+          <button class="ts-tab" data-range="6m">6개월</button>
+          <button class="ts-tab" data-range="3m">3개월</button>
+        </div>
+      </div>
+      <svg class="ts" viewBox="0 0 820 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="코생지 TOP 10 평균·알파 추이">
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <g class="ts-group show" data-range="1y"
+       data-ml="46" data-pw="722" data-mt="14" data-ph="260"
+       data-clo="1.1322" data-chi="1.8239"
+       data-alo="-0.1644" data-ahi="0.1840"
+       data-points='[["2025-06-23",1.2806,-0.0168],["2025-06-24",1.2850,0.0554],["2025-06-25",1.2394,0.0252],["2025-06-26",1.2210,-0.0337],["2025-06-27",1.2542,-0.0219],["2025-06-28",1.3416,0.0288],["2025-06-29",1.3300,0.0552],["2025-06-30",1.3129,0.0384],["2025-07-01",1.2889,-0.0149],["2025-07-02",1.3172,-0.0276],["2025-07-03",1.3947,0.0477],["2025-07-04",1.4192,0.0056],["2025-07-05",1.4443,-0.0168],["2025-07-06",1.3927,0.0103],["2025-07-07",1.4069,0.0309],["2025-07-08",1.4397,0.0001],["2025-07-09",1.3729,0.0133],["2025-07-10",1.4213,0.0185],["2025-07-11",1.4081,0.0612],["2025-07-12",1.4597,0.0235],["2025-07-13",1.5646,0.0173],["2025-07-14",1.5629,0.0853],["2025-07-15",1.5281,-0.0041],["2025-07-16",1.5168,0.0681],["2025-07-17",1.5259,0.0318],["2025-07-18",1.5513,0.0230],["2025-07-19",1.5762,-0.0023],["2025-07-20",1.5791,0.0661],["2025-07-21",1.5509,0.0390],["2025-07-22",1.5330,0.0285],["2025-07-23",1.5420,-0.0035],["2025-07-24",1.5155,-0.0714],["2025-07-25",1.5914,-0.0409],["2025-07-26",1.5637,0.0435],["2025-07-27",1.5391,0.0200],["2025-07-28",1.4949,0.0035],["2025-07-29",1.4301,-0.0388],["2025-07-30",1.3630,0.0028],["2025-07-31",1.3754,-0.0088],["2025-08-01",1.4256,-0.0260],["2025-08-02",1.4137,-0.0062],["2025-08-03",1.4050,-0.0137],["2025-08-04",1.4412,0.0270],["2025-08-05",1.3994,0.0350],["2025-08-06",1.3617,-0.0284],["2025-08-07",1.3138,0.0169],["2025-08-08",1.3338,0.0405],["2025-08-09",1.3392,0.0274],["2025-08-10",1.3298,0.0340],["2025-08-11",1.2926,-0.0331],["2025-08-12",1.3609,-0.0287],["2025-08-13",1.3969,0.0659],["2025-08-14",1.3721,0.0069],["2025-08-15",1.3532,-0.0259],["2025-08-16",1.3505,-0.0033],["2025-08-17",1.3856,0.0131],["2025-08-18",1.3627,0.0268],["2025-08-19",1.2598,-0.0353],["2025-08-20",1.3226,-0.0265],["2025-08-21",1.2937,0.0515],["2025-08-22",1.3064,-0.0245],["2025-08-23",1.3085,0.0700],["2025-08-24",1.3692,-0.0002],["2025-08-25",1.2980,-0.0044],["2025-08-26",1.2661,-0.0546],["2025-08-27",1.2925,0.0556],["2025-08-28",1.3462,0.0356],["2025-08-29",1.3251,0.0491],["2025-08-30",1.3736,-0.0037],["2025-08-31",1.3592,-0.0032],["2025-09-01",1.4316,-0.0046],["2025-09-02",1.4394,-0.0297],["2025-09-03",1.3974,0.0219],["2025-09-04",1.3527,0.0118],["2025-09-05",1.3438,-0.0177],["2025-09-06",1.3841,0.0285],["2025-09-07",1.3720,-0.0056],["2025-09-08",1.3492,0.0271],["2025-09-09",1.3497,0.0673],["2025-09-10",1.3646,0.0056],["2025-09-11",1.3800,0.0139],["2025-09-12",1.4140,0.0109],["2025-09-13",1.4783,0.0419],["2025-09-14",1.4829,0.0382],["2025-09-15",1.4622,-0.0157],["2025-09-16",1.4177,-0.0228],["2025-09-17",1.4529,-0.0063],["2025-09-18",1.4000,0.0374],["2025-09-19",1.3518,-0.0086],["2025-09-20",1.4294,-0.0271],["2025-09-21",1.3531,0.0913],["2025-09-22",1.3646,-0.0300],["2025-09-23",1.3375,-0.0261],["2025-09-24",1.2965,0.0014],["2025-09-25",1.3032,0.0030],["2025-09-26",1.3621,-0.0435],["2025-09-27",1.3502,0.0363],["2025-09-28",1.3749,-0.0129],["2025-09-29",1.3921,0.0108],["2025-09-30",1.3673,-0.0169],["2025-10-01",1.3495,-0.0214],["2025-10-02",1.3789,0.0137],["2025-10-03",1.3894,0.0222],["2025-10-04",1.4024,-0.0061],["2025-10-05",1.4001,-0.0256],["2025-10-06",1.4374,-0.0262],["2025-10-07",1.4050,0.0474],["2025-10-08",1.4145,0.0153],["2025-10-09",1.3387,-0.0191],["2025-10-10",1.4752,-0.0469],["2025-10-11",1.2923,-0.1404],["2025-10-12",1.3372,-0.0104],["2025-10-13",1.3638,0.1041],["2025-10-14",1.3141,0.0498],["2025-10-15",1.2842,-0.0126],["2025-10-16",1.4331,-0.0302],["2025-10-17",1.3883,-0.0205],["2025-10-18",1.3326,-0.0077],["2025-10-19",1.3169,0.0240],["2025-10-20",1.2769,0.0127],["2025-10-21",1.2683,-0.0081],["2025-10-22",1.2635,-0.0094],["2025-10-23",1.3016,-0.0230],["2025-10-24",1.3824,0.0179],["2025-10-25",1.3450,0.0172],["2025-10-26",1.3247,-0.0043],["2025-10-27",1.3226,0.0274],["2025-10-28",1.3602,-0.0081],["2025-10-29",1.3732,-0.0059],["2025-10-30",1.3311,0.0379],["2025-10-31",1.3545,-0.0447],["2025-11-01",1.3652,0.0292],["2025-11-02",1.4060,0.0040],["2025-11-03",1.3015,0.0162],["2025-11-04",1.3044,-0.0671],["2025-11-05",1.2969,0.0168],["2025-11-06",1.3343,0.0332],["2025-11-07",1.4588,0.0419],["2025-11-08",1.3434,0.1600],["2025-11-09",1.3319,0.0001],["2025-11-10",1.2999,-0.0022],["2025-11-11",1.2947,0.0487],["2025-11-12",1.2617,-0.0347],["2025-11-13",1.2895,0.0009],["2025-11-14",1.2629,-0.0184],["2025-11-15",1.2841,0.0078],["2025-11-16",1.2744,0.0052],["2025-11-17",1.3037,0.0020],["2025-11-18",1.2915,-0.0224],["2025-11-19",1.2224,0.0350],["2025-11-20",1.2847,-0.0102],["2025-11-21",1.3111,0.0117],["2025-11-22",1.3730,-0.0239],["2025-11-23",1.3597,0.0035],["2025-11-24",1.4724,-0.0154],["2025-11-25",1.4163,0.0382],["2025-11-26",1.4102,0.0686],["2025-11-27",1.3996,-0.0123],["2025-11-28",1.4002,-0.0248],["2025-11-29",1.3357,-0.0033],["2025-11-30",1.3462,-0.0206],["2025-12-01",1.3818,-0.0092],["2025-12-02",1.3244,-0.0195],["2025-12-03",1.3861,0.0256],["2025-12-04",1.3715,0.0232],["2025-12-05",1.4210,-0.0109],["2025-12-06",1.3408,-0.0239],["2025-12-07",1.4331,0.0174],["2025-12-08",1.4030,-0.0204],["2025-12-09",1.4369,0.0263],["2025-12-10",1.3999,-0.0027],["2025-12-11",1.4392,-0.0219],["2025-12-12",1.3803,-0.0388],["2025-12-13",1.4080,-0.0014],["2025-12-14",1.3582,0.0113],["2025-12-15",1.2677,-0.0115],["2025-12-16",1.3166,-0.0042],["2025-12-17",1.2695,-0.0181],["2025-12-18",1.4360,-0.0413],["2025-12-19",1.4327,-0.0261],["2025-12-20",1.5138,0.0363],["2025-12-21",1.5080,-0.0025],["2025-12-22",1.4125,-0.0157],["2025-12-23",1.4513,-0.0130],["2025-12-24",1.3346,-0.0124],["2025-12-25",1.3771,-0.0019],["2025-12-26",1.3492,-0.0003],["2025-12-27",1.4368,0.0267],["2025-12-28",1.5391,0.0311],["2025-12-29",1.5775,-0.0070],["2025-12-30",1.6250,-0.0092],["2025-12-31",1.5659,-0.0035],["2026-01-01",1.6329,0.0024],["2026-01-02",1.6922,0.0518],["2026-01-03",1.7237,0.0752],["2026-01-04",1.6469,0.0019],["2026-01-05",1.5664,0.0561],["2026-01-06",1.5158,-0.0065],["2026-01-07",1.5053,0.0154],["2026-01-08",1.5185,-0.0147],["2026-01-09",1.4946,-0.0177],["2026-01-10",1.5273,0.0144],["2026-01-11",1.4719,-0.0048],["2026-01-12",1.4076,-0.0055],["2026-01-13",1.4864,-0.0105],["2026-01-14",1.4359,0.0311],["2026-01-15",1.4490,-0.0156],["2026-01-16",1.4508,-0.0156],["2026-01-17",1.6401,0.0326],["2026-01-18",1.6933,0.0002],["2026-01-19",1.5962,-0.0188],["2026-01-20",1.4917,-0.0036],["2026-01-21",1.5908,-0.0048],["2026-01-22",1.6836,0.0240],["2026-01-23",1.6422,-0.0139],["2026-01-24",1.4848,0.0005],["2026-01-25",1.6041,0.0208],["2026-01-26",1.6107,-0.0169],["2026-01-27",1.5938,0.0143],["2026-01-28",1.4596,0.0315],["2026-01-29",1.5336,0.0039],["2026-01-30",1.6436,-0.0018],["2026-01-31",1.6938,-0.0179],["2026-02-01",1.6027,-0.0198],["2026-02-02",1.6230,0.0122],["2026-02-03",1.6536,0.0167],["2026-02-04",1.6251,0.0064],["2026-02-05",1.6574,0.0147],["2026-02-06",1.4060,-0.0065],["2026-02-07",1.4734,-0.0058],["2026-02-08",1.4609,0.0147],["2026-02-09",1.3792,-0.0310],["2026-02-10",1.4069,0.0030],["2026-02-11",1.3771,-0.0126],["2026-02-12",1.4275,0.0043],["2026-02-13",1.4423,0.0348],["2026-02-14",1.5555,0.0192],["2026-02-15",1.5606,0.0703],["2026-02-16",1.6095,-0.0236],["2026-02-17",1.6035,0.0263],["2026-02-18",1.6022,0.0063],["2026-02-19",1.5003,-0.0129],["2026-02-20",1.5610,-0.0041],["2026-02-21",1.5657,0.0102],["2026-02-22",1.6015,-0.0074],["2026-02-23",1.5522,-0.0123],["2026-02-24",1.4234,-0.0105],["2026-02-25",1.4239,-0.0099],["2026-02-26",1.4792,0.0289],["2026-02-27",1.5802,-0.0045],["2026-02-28",1.5248,-0.0122],["2026-03-01",1.5155,0.0010],["2026-03-02",1.4053,-0.0089],["2026-03-03",1.3701,-0.0236],["2026-03-04",1.4392,-0.0034],["2026-03-05",1.4474,-0.0132],["2026-03-06",1.4468,0.0003],["2026-03-07",1.4623,0.0007],["2026-03-08",1.3807,-0.0029],["2026-03-09",1.4001,0.0049],["2026-03-10",1.3599,-0.0109],["2026-03-11",1.3894,0.0033],["2026-03-12",1.3366,0.0049],["2026-03-13",1.3660,0.0122],["2026-03-14",1.3758,-0.0095],["2026-03-15",1.4052,-0.0014],["2026-03-16",1.4767,0.0064],["2026-03-17",1.4346,0.0370],["2026-03-18",1.4051,-0.0116],["2026-03-19",1.3986,-0.0068],["2026-03-20",1.4488,-0.0023],["2026-03-21",1.3666,-0.0068],["2026-03-22",1.3597,0.0081],["2026-03-23",1.3671,-0.0114],["2026-03-24",1.4513,-0.0034],["2026-03-25",1.4524,0.0306],["2026-03-26",1.3788,0.0002],["2026-03-27",1.4144,-0.0060],["2026-03-28",1.4413,0.0028],["2026-03-29",1.3934,0.0019],["2026-03-30",1.4587,-0.0022],["2026-03-31",1.3909,0.0003],["2026-04-01",1.5929,0.0193],["2026-04-02",1.4863,0.0089],["2026-04-03",1.6045,0.0069],["2026-04-04",1.4437,0.0241],["2026-04-05",1.4942,0.0048],["2026-04-06",1.4604,-0.0171],["2026-04-07",1.4206,-0.0094],["2026-04-08",1.4880,0.0152],["2026-04-09",1.4476,-0.0171],["2026-04-10",1.4799,-0.0076],["2026-04-11",1.4273,-0.0197],["2026-04-12",1.4095,0.0001],["2026-04-13",1.4098,-0.0062],["2026-04-14",1.5318,-0.0054],["2026-04-15",1.4309,-0.0204],["2026-04-16",1.4375,0.0141],["2026-04-17",1.4974,0.0336],["2026-04-18",1.5113,-0.0215],["2026-04-19",1.4246,-0.0239],["2026-04-20",1.4084,-0.0113],["2026-04-21",1.3961,-0.0033],["2026-04-22",1.4090,0.0036],["2026-04-23",1.4358,-0.0174],["2026-04-24",1.6677,0.0418],["2026-04-25",1.7487,-0.0007],["2026-04-26",1.6981,0.0033],["2026-04-27",1.6025,-0.0043],["2026-04-28",1.6833,0.0152],["2026-04-29",1.7762,0.0175],["2026-04-30",1.7528,-0.0116],["2026-05-01",1.5225,-0.0023],["2026-05-02",1.4830,-0.0146],["2026-05-03",1.4982,-0.0004],["2026-05-04",1.4346,0.0009],["2026-05-05",1.4306,0.0114],["2026-05-06",1.4441,0.0239],["2026-05-07",1.4075,0.0343],["2026-05-08",1.4093,0.0226],["2026-05-09",1.3832,0.0373],["2026-05-10",1.4226,-0.0007],["2026-05-11",1.4984,0.0368],["2026-05-12",1.4316,-0.0071],["2026-05-13",1.3644,0.0117],["2026-05-14",1.4375,0.0005],["2026-05-15",1.5440,-0.0130],["2026-05-16",1.4341,-0.0211],["2026-05-17",1.4367,0.0009],["2026-05-18",1.3326,-0.0093],["2026-05-19",1.3582,0.0069],["2026-05-20",1.3995,0.0008],["2026-05-21",1.3402,0.0038],["2026-05-22",1.3768,0.0323],["2026-05-23",1.3814,-0.0090],["2026-05-24",1.3427,-0.0004],["2026-05-25",1.4172,-0.0179],["2026-05-26",1.2988,0.0072],["2026-05-27",1.3755,0.0129],["2026-05-28",1.4260,0.0098],["2026-05-29",1.4499,0.0083],["2026-05-30",1.4753,0.0398],["2026-05-31",1.4073,-0.0051],["2026-06-01",1.3671,0.0137],["2026-06-02",1.4108,0.0159],["2026-06-03",1.3370,-0.0107],["2026-06-04",1.3404,0.0259],["2026-06-05",1.3952,-0.0465],["2026-06-06",1.4096,-0.0413],["2026-06-07",1.4063,0.0069],["2026-06-08",1.4364,0.0120],["2026-06-09",1.2523,0.0125],["2026-06-10",1.2052,0.0033],["2026-06-11",1.2815,-0.0181],["2026-06-12",1.5409,-0.0017],["2026-06-13",1.5588,0.0332],["2026-06-14",1.3442,0.0217],["2026-06-15",1.4106,-0.0081],["2026-06-16",1.2782,0.0061],["2026-06-17",1.2536,0.0041],["2026-06-18",1.1799,0.0118],["2026-06-19",1.2276,0.0028],["2026-06-20",1.2739,-0.0193],["2026-06-21",1.2801,-0.0020]]'>
+      <!-- 축 -->
+      <line class="ts-axis" x1="46" y1="274" x2="768" y2="274"/>
+      <!-- 알파 0선 (범위에 0 포함 시) -->
+      <line class="ts-zero" x1="46" y1="151.3" x2="768" y2="151.3"/>
+      <!-- 좌축 눈금 (코호트 강도) / 우축 눈금 (알파 %p) -->
+      
+        
+        <text class="ts-tick cohort" x="38" y="277.0" text-anchor="end">1.13</text>
+        
+        <text class="ts-tick alpha" x="776" y="277.0" text-anchor="start">-16.4</text>
+      
+        
+        <text class="ts-tick cohort" x="38" y="190.3" text-anchor="end">1.36</text>
+        
+        <text class="ts-tick alpha" x="776" y="190.3" text-anchor="start">-4.8</text>
+      
+        
+        <text class="ts-tick cohort" x="38" y="103.7" text-anchor="end">1.59</text>
+        
+        <text class="ts-tick alpha" x="776" y="103.7" text-anchor="start">+6.8</text>
+      
+        
+        <text class="ts-tick cohort" x="38" y="17.0" text-anchor="end">1.82</text>
+        
+        <text class="ts-tick alpha" x="776" y="17.0" text-anchor="start">+18.4</text>
+      
+      <!-- x축 날짜 (6개 솎음) -->
+      
+        
+        
+        <text class="ts-tick" x="46.0" y="290" text-anchor="middle">25-06</text>
+      
+        
+        
+        <text class="ts-tick" x="191.2" y="290" text-anchor="middle">25-09</text>
+      
+        
+        
+        <text class="ts-tick" x="334.4" y="290" text-anchor="middle">25-11</text>
+      
+        
+        
+        <text class="ts-tick" x="479.6" y="290" text-anchor="middle">26-01</text>
+      
+        
+        
+        <text class="ts-tick" x="622.8" y="290" text-anchor="middle">26-04</text>
+      
+        
+        
+        <text class="ts-tick" x="768.0" y="290" text-anchor="middle">26-06</text>
+      
+      <!-- 코호트 강도 (좌축) -->
+      <polyline class="ts-line-cohort" points="46.0,218.2 48.0,216.6 50.0,233.7 52.0,240.6 54.0,228.1 55.9,195.3 57.9,199.6 59.9,206.1 61.9,215.1 63.9,204.5 65.9,175.3 67.9,166.1 69.9,156.7 71.9,176.1 73.8,170.7 75.8,158.4 77.8,183.5 79.8,165.3 81.8,170.3 83.8,150.9 85.8,111.5 87.8,112.1 89.8,125.2 91.7,129.4 93.7,126.0 95.7,116.5 97.7,107.1 99.7,106.0 101.7,116.6 103.7,123.3 105.7,120.0 107.7,129.9 109.6,101.4 111.6,111.8 113.6,121.1 115.6,137.7 117.6,162.0 119.6,187.2 121.6,182.6 123.6,163.7 125.6,168.2 127.5,171.5 129.5,157.9 131.5,173.6 133.5,187.7 135.5,205.7 137.5,198.2 139.5,196.2 141.5,199.7 143.5,213.7 145.4,188.0 147.4,174.5 149.4,183.8 151.4,190.9 153.4,191.9 155.4,178.8 157.4,187.4 159.4,226.0 161.4,202.4 163.3,213.3 165.3,208.5 167.3,207.7 169.3,184.9 171.3,211.7 173.3,223.7 175.3,213.7 177.3,193.6 179.3,201.5 181.3,183.3 183.2,188.7 185.2,161.5 187.2,158.5 189.2,174.3 191.2,191.1 193.2,194.5 195.2,179.3 197.2,183.9 199.2,192.4 201.1,192.2 203.1,186.6 205.1,180.9 207.1,168.1 209.1,143.9 211.1,142.2 213.1,150.0 215.1,166.7 217.1,153.5 219.0,173.3 221.0,191.5 223.0,162.3 225.0,191.0 227.0,186.6 229.0,196.8 231.0,212.2 233.0,209.7 235.0,187.6 236.9,192.1 238.9,182.8 240.9,176.3 242.9,185.6 244.9,192.3 246.9,181.3 248.9,177.3 250.9,172.4 252.9,173.3 254.8,159.3 256.8,171.5 258.8,167.9 260.8,196.4 262.8,145.1 264.8,213.8 266.8,196.9 268.8,186.9 270.8,205.6 272.7,216.9 274.7,160.9 276.7,177.7 278.7,198.7 280.7,204.6 282.7,219.6 284.7,222.8 286.7,224.6 288.7,210.3 290.6,180.0 292.6,194.0 294.6,201.6 296.6,202.4 298.6,188.3 300.6,183.4 302.6,199.2 304.6,190.4 306.6,186.4 308.5,171.1 310.5,210.4 312.5,209.3 314.5,212.1 316.5,198.0 318.5,151.2 320.5,194.6 322.5,198.9 324.5,211.0 326.4,212.9 328.4,225.3 330.4,214.9 332.4,224.9 334.4,216.9 336.4,220.5 338.4,209.5 340.4,214.1 342.4,240.1 344.3,216.7 346.3,206.8 348.3,183.5 350.3,188.5 352.3,146.1 354.3,167.2 356.3,169.5 358.3,173.5 360.3,173.3 362.2,197.5 364.2,193.6 366.2,180.2 368.2,201.8 370.2,178.6 372.2,184.1 374.2,165.4 376.2,195.6 378.2,160.9 380.1,172.2 382.1,159.5 384.1,173.4 386.1,158.6 388.1,180.7 390.1,170.3 392.1,189.0 394.1,223.1 396.1,204.7 398.0,222.4 400.0,159.8 402.0,161.0 404.0,130.6 406.0,132.7 408.0,168.6 410.0,154.1 412.0,197.9 414.0,181.9 416.0,192.4 417.9,159.5 419.9,121.1 421.9,106.6 423.9,88.8 425.9,111.0 427.9,85.8 429.9,63.5 431.9,51.7 433.9,80.5 435.8,110.8 437.8,129.8 439.8,133.8 441.8,128.8 443.8,137.8 445.8,125.5 447.8,146.3 449.8,170.5 451.8,140.9 453.7,159.8 455.7,154.9 457.7,154.2 459.7,83.1 461.7,63.1 463.7,99.6 465.7,138.9 467.7,101.6 469.7,66.7 471.6,82.3 473.6,141.5 475.6,96.6 477.6,94.1 479.6,100.5 481.6,150.9 483.6,123.1 485.6,81.8 487.6,62.9 489.5,97.1 491.5,89.5 493.5,78.0 495.5,88.7 497.5,76.6 499.5,171.1 501.5,145.7 503.5,150.4 505.5,181.2 507.4,170.7 509.4,181.9 511.4,163.0 513.4,157.4 515.4,114.9 517.4,113.0 519.4,94.6 521.4,96.8 523.4,97.3 525.3,135.6 527.3,112.8 529.3,111.1 531.3,97.6 533.3,116.1 535.3,164.5 537.3,164.4 539.3,143.6 541.3,105.6 543.2,126.4 545.2,129.9 547.2,171.3 549.2,184.6 551.2,158.6 553.2,155.5 555.2,155.7 557.2,149.9 559.2,180.6 561.1,173.3 563.1,188.4 565.1,177.3 567.1,197.2 569.1,186.1 571.1,182.4 573.1,171.4 575.1,144.5 577.1,160.3 579.0,171.4 581.0,173.9 583.0,155.0 585.0,185.9 587.0,188.5 589.0,185.7 591.0,154.1 593.0,153.6 595.0,181.3 596.9,167.9 598.9,157.8 600.9,175.8 602.9,151.3 604.9,176.8 606.9,100.8 608.9,140.9 610.9,96.5 612.9,156.9 614.8,137.9 616.8,150.6 618.8,165.6 620.8,140.3 622.8,155.4 624.8,143.3 626.8,163.1 628.8,169.8 630.8,169.7 632.7,123.8 634.7,161.7 636.7,159.2 638.7,136.7 640.7,131.5 642.7,164.1 644.7,170.2 646.7,174.8 648.7,170.0 650.7,159.9 652.6,72.7 654.6,42.3 656.6,61.3 658.6,97.2 660.6,66.9 662.6,31.9 664.6,40.7 666.6,127.3 668.6,142.1 670.5,136.4 672.5,160.3 674.5,161.8 676.5,156.8 678.5,170.5 680.5,169.8 682.5,179.7 684.5,164.8 686.5,136.4 688.4,161.5 690.4,186.7 692.4,159.2 694.4,119.2 696.4,160.5 698.4,159.5 700.4,198.7 702.4,189.0 704.4,173.5 706.3,195.8 708.3,182.1 710.3,180.3 712.3,194.9 714.3,166.9 716.3,211.4 718.3,182.5 720.3,163.6 722.3,154.6 724.2,145.0 726.2,170.6 728.2,185.7 730.2,169.3 732.2,197.0 734.2,195.7 736.2,175.1 738.2,169.7 740.2,171.0 742.1,159.7 744.1,228.9 746.1,246.6 748.1,217.9 750.1,120.4 752.1,113.6 754.1,194.3 756.1,169.4 758.1,219.1 760.0,228.4 762.0,256.1 764.0,238.1 766.0,220.7 768.0,218.4 "/>
+      <!-- 알파 (우축) -->
+      <polyline class="ts-line-alpha" points="46.0,163.8 48.0,110.0 50.0,132.5 52.0,176.5 54.0,167.7 55.9,129.8 57.9,110.1 59.9,122.7 61.9,162.4 63.9,171.9 65.9,115.7 67.9,147.1 69.9,163.8 71.9,143.6 73.8,128.3 75.8,151.2 77.8,141.4 79.8,137.5 81.8,105.6 83.8,133.8 85.8,138.4 87.8,87.7 89.8,154.4 91.7,100.5 93.7,127.6 95.7,134.2 97.7,153.0 99.7,102.0 101.7,122.2 103.7,130.0 105.7,153.9 107.7,204.6 109.6,181.8 111.6,118.9 113.6,136.4 115.6,148.7 117.6,180.3 119.6,149.2 121.6,157.9 123.6,170.7 125.6,155.9 127.5,161.5 129.5,131.2 131.5,125.2 133.5,172.5 135.5,138.7 137.5,121.1 139.5,130.9 141.5,125.9 143.5,176.0 145.4,172.7 147.4,102.1 149.4,146.2 151.4,170.6 153.4,153.8 155.4,141.5 157.4,131.3 159.4,177.7 161.4,171.1 163.3,112.9 165.3,169.6 167.3,99.1 169.3,151.5 171.3,154.6 173.3,192.1 175.3,109.8 177.3,124.7 179.3,114.7 181.3,154.1 183.2,153.7 185.2,154.7 187.2,173.5 189.2,135.0 191.2,142.5 193.2,164.5 195.2,130.0 197.2,155.5 199.2,131.1 201.1,101.1 203.1,147.1 205.1,140.9 207.1,143.2 209.1,120.0 211.1,122.8 213.1,163.0 215.1,168.3 217.1,156.0 219.0,123.4 221.0,157.7 223.0,171.5 225.0,83.2 227.0,173.7 229.0,170.8 231.0,150.3 233.0,149.1 235.0,183.8 236.9,124.2 238.9,160.9 240.9,143.3 242.9,163.9 244.9,167.3 246.9,141.1 248.9,134.7 250.9,155.9 252.9,170.4 254.8,170.9 256.8,115.9 258.8,139.9 260.8,165.6 262.8,186.3 264.8,256.1 266.8,159.1 268.8,73.6 270.8,114.2 272.7,160.7 274.7,173.8 276.7,166.6 278.7,157.1 280.7,133.4 282.7,141.8 284.7,157.4 286.7,158.3 288.7,168.5 290.6,138.0 292.6,138.5 294.6,154.5 296.6,130.9 298.6,157.4 300.6,155.7 302.6,123.0 304.6,184.7 306.6,129.5 308.5,148.3 310.5,139.2 312.5,201.4 314.5,138.8 316.5,126.5 318.5,120.0 320.5,31.9 322.5,151.2 324.5,153.0 326.4,115.0 328.4,177.2 330.4,150.6 332.4,165.0 334.4,145.5 336.4,147.4 338.4,149.8 340.4,168.0 342.4,125.2 344.3,158.9 346.3,142.6 348.3,169.1 350.3,148.7 352.3,162.8 354.3,122.8 356.3,100.1 358.3,160.5 360.3,169.8 362.2,153.8 364.2,166.7 366.2,158.2 368.2,165.9 370.2,132.2 372.2,134.0 374.2,159.4 376.2,169.1 378.2,138.3 380.1,166.5 382.1,131.7 384.1,153.3 386.1,167.7 388.1,180.3 390.1,152.4 392.1,142.9 394.1,159.9 396.1,154.4 398.0,164.8 400.0,182.1 402.0,170.8 404.0,124.2 406.0,153.2 408.0,163.0 410.0,161.0 412.0,160.6 414.0,152.7 416.0,151.5 417.9,131.4 419.9,128.1 421.9,156.5 423.9,158.2 425.9,153.9 427.9,149.5 429.9,112.7 431.9,95.2 433.9,149.9 435.8,109.5 437.8,156.2 439.8,139.8 441.8,162.3 443.8,164.5 445.8,140.6 447.8,154.9 449.8,155.4 451.8,159.1 453.7,128.1 455.7,163.0 457.7,163.0 459.7,127.0 461.7,151.2 463.7,165.3 465.7,154.0 467.7,154.9 469.7,133.4 471.6,161.7 473.6,150.9 475.6,135.8 477.6,163.9 479.6,140.6 481.6,127.8 483.6,148.4 485.6,152.7 487.6,164.7 489.5,166.1 491.5,142.2 493.5,138.9 495.5,146.5 497.5,140.3 499.5,156.2 501.5,155.6 503.5,140.3 505.5,174.4 507.4,149.1 509.4,160.7 511.4,148.1 513.4,125.3 515.4,137.0 517.4,98.9 519.4,168.9 521.4,131.7 523.4,146.6 525.3,160.9 527.3,154.4 529.3,143.7 531.3,156.8 533.3,160.5 535.3,159.1 537.3,158.7 539.3,129.7 541.3,154.7 543.2,160.4 545.2,150.6 547.2,158.0 549.2,168.9 551.2,153.8 553.2,161.2 555.2,151.1 557.2,150.8 559.2,153.5 561.1,147.7 563.1,159.4 565.1,148.8 567.1,147.7 569.1,142.2 571.1,158.4 573.1,152.4 575.1,146.5 577.1,123.7 579.0,160.0 581.0,156.4 583.0,153.0 585.0,156.4 587.0,145.3 589.0,159.8 591.0,153.8 593.0,128.5 595.0,151.2 596.9,155.8 598.9,149.2 600.9,149.9 602.9,153.0 604.9,151.1 606.9,136.9 608.9,144.7 610.9,146.2 612.9,133.3 614.8,147.7 616.8,164.1 618.8,158.3 620.8,140.0 622.8,164.1 624.8,157.0 626.8,166.0 628.8,151.2 630.8,155.9 632.7,155.3 634.7,166.5 636.7,140.8 638.7,126.2 640.7,167.4 642.7,169.1 644.7,159.7 646.7,153.8 648.7,148.6 650.7,164.3 652.6,120.1 654.6,151.8 656.6,148.8 658.6,154.5 660.6,140.0 662.6,138.3 664.6,160.0 666.6,153.0 668.6,162.2 670.5,151.6 672.5,150.6 674.5,142.8 676.5,133.5 678.5,125.7 680.5,134.4 682.5,123.5 684.5,151.8 686.5,123.9 688.4,156.6 690.4,142.6 692.4,150.9 694.4,161.0 696.4,167.1 698.4,150.6 700.4,158.3 702.4,146.2 704.4,150.7 706.3,148.5 708.3,127.2 710.3,158.0 712.3,151.6 714.3,164.7 716.3,145.9 718.3,141.7 720.3,144.0 722.3,145.1 724.2,121.6 726.2,155.1 728.2,141.1 730.2,139.4 732.2,159.3 734.2,132.0 736.2,186.0 738.2,182.1 740.2,146.2 742.1,142.4 744.1,142.0 746.1,148.8 748.1,164.8 750.1,152.6 752.1,126.5 754.1,135.1 756.1,157.4 758.1,146.8 760.0,148.3 762.0,142.5 764.0,149.2 766.0,165.7 768.0,152.8 "/>
+      <!-- 호버: 크로스헤어 + 양축 포커스 점 + 투명 히트영역 -->
+      <line class="ts-cross" x1="46" y1="14" x2="46" y2="274" style="display:none"/>
+      <circle class="ts-dot-cohort" r="3.5" cx="46" cy="14" style="display:none"/>
+      <circle class="ts-dot-alpha" r="3" cx="46" cy="14" style="display:none"/>
+      <rect class="ts-hit" x="46" y="14" width="722" height="260" pointer-events="all"/>
+    </g>
+  
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <g class="ts-group " data-range="6m"
+       data-ml="46" data-pw="722" data-mt="14" data-ph="260"
+       data-clo="1.1322" data-chi="1.8239"
+       data-alo="-0.0562" data-ahi="0.0849"
+       data-points='[["2025-12-21",1.5080,-0.0025],["2025-12-22",1.4125,-0.0157],["2025-12-23",1.4513,-0.0130],["2025-12-24",1.3346,-0.0124],["2025-12-25",1.3771,-0.0019],["2025-12-26",1.3492,-0.0003],["2025-12-27",1.4368,0.0267],["2025-12-28",1.5391,0.0311],["2025-12-29",1.5775,-0.0070],["2025-12-30",1.6250,-0.0092],["2025-12-31",1.5659,-0.0035],["2026-01-01",1.6329,0.0024],["2026-01-02",1.6922,0.0518],["2026-01-03",1.7237,0.0752],["2026-01-04",1.6469,0.0019],["2026-01-05",1.5664,0.0561],["2026-01-06",1.5158,-0.0065],["2026-01-07",1.5053,0.0154],["2026-01-08",1.5185,-0.0147],["2026-01-09",1.4946,-0.0177],["2026-01-10",1.5273,0.0144],["2026-01-11",1.4719,-0.0048],["2026-01-12",1.4076,-0.0055],["2026-01-13",1.4864,-0.0105],["2026-01-14",1.4359,0.0311],["2026-01-15",1.4490,-0.0156],["2026-01-16",1.4508,-0.0156],["2026-01-17",1.6401,0.0326],["2026-01-18",1.6933,0.0002],["2026-01-19",1.5962,-0.0188],["2026-01-20",1.4917,-0.0036],["2026-01-21",1.5908,-0.0048],["2026-01-22",1.6836,0.0240],["2026-01-23",1.6422,-0.0139],["2026-01-24",1.4848,0.0005],["2026-01-25",1.6041,0.0208],["2026-01-26",1.6107,-0.0169],["2026-01-27",1.5938,0.0143],["2026-01-28",1.4596,0.0315],["2026-01-29",1.5336,0.0039],["2026-01-30",1.6436,-0.0018],["2026-01-31",1.6938,-0.0179],["2026-02-01",1.6027,-0.0198],["2026-02-02",1.6230,0.0122],["2026-02-03",1.6536,0.0167],["2026-02-04",1.6251,0.0064],["2026-02-05",1.6574,0.0147],["2026-02-06",1.4060,-0.0065],["2026-02-07",1.4734,-0.0058],["2026-02-08",1.4609,0.0147],["2026-02-09",1.3792,-0.0310],["2026-02-10",1.4069,0.0030],["2026-02-11",1.3771,-0.0126],["2026-02-12",1.4275,0.0043],["2026-02-13",1.4423,0.0348],["2026-02-14",1.5555,0.0192],["2026-02-15",1.5606,0.0703],["2026-02-16",1.6095,-0.0236],["2026-02-17",1.6035,0.0263],["2026-02-18",1.6022,0.0063],["2026-02-19",1.5003,-0.0129],["2026-02-20",1.5610,-0.0041],["2026-02-21",1.5657,0.0102],["2026-02-22",1.6015,-0.0074],["2026-02-23",1.5522,-0.0123],["2026-02-24",1.4234,-0.0105],["2026-02-25",1.4239,-0.0099],["2026-02-26",1.4792,0.0289],["2026-02-27",1.5802,-0.0045],["2026-02-28",1.5248,-0.0122],["2026-03-01",1.5155,0.0010],["2026-03-02",1.4053,-0.0089],["2026-03-03",1.3701,-0.0236],["2026-03-04",1.4392,-0.0034],["2026-03-05",1.4474,-0.0132],["2026-03-06",1.4468,0.0003],["2026-03-07",1.4623,0.0007],["2026-03-08",1.3807,-0.0029],["2026-03-09",1.4001,0.0049],["2026-03-10",1.3599,-0.0109],["2026-03-11",1.3894,0.0033],["2026-03-12",1.3366,0.0049],["2026-03-13",1.3660,0.0122],["2026-03-14",1.3758,-0.0095],["2026-03-15",1.4052,-0.0014],["2026-03-16",1.4767,0.0064],["2026-03-17",1.4346,0.0370],["2026-03-18",1.4051,-0.0116],["2026-03-19",1.3986,-0.0068],["2026-03-20",1.4488,-0.0023],["2026-03-21",1.3666,-0.0068],["2026-03-22",1.3597,0.0081],["2026-03-23",1.3671,-0.0114],["2026-03-24",1.4513,-0.0034],["2026-03-25",1.4524,0.0306],["2026-03-26",1.3788,0.0002],["2026-03-27",1.4144,-0.0060],["2026-03-28",1.4413,0.0028],["2026-03-29",1.3934,0.0019],["2026-03-30",1.4587,-0.0022],["2026-03-31",1.3909,0.0003],["2026-04-01",1.5929,0.0193],["2026-04-02",1.4863,0.0089],["2026-04-03",1.6045,0.0069],["2026-04-04",1.4437,0.0241],["2026-04-05",1.4942,0.0048],["2026-04-06",1.4604,-0.0171],["2026-04-07",1.4206,-0.0094],["2026-04-08",1.4880,0.0152],["2026-04-09",1.4476,-0.0171],["2026-04-10",1.4799,-0.0076],["2026-04-11",1.4273,-0.0197],["2026-04-12",1.4095,0.0001],["2026-04-13",1.4098,-0.0062],["2026-04-14",1.5318,-0.0054],["2026-04-15",1.4309,-0.0204],["2026-04-16",1.4375,0.0141],["2026-04-17",1.4974,0.0336],["2026-04-18",1.5113,-0.0215],["2026-04-19",1.4246,-0.0239],["2026-04-20",1.4084,-0.0113],["2026-04-21",1.3961,-0.0033],["2026-04-22",1.4090,0.0036],["2026-04-23",1.4358,-0.0174],["2026-04-24",1.6677,0.0418],["2026-04-25",1.7487,-0.0007],["2026-04-26",1.6981,0.0033],["2026-04-27",1.6025,-0.0043],["2026-04-28",1.6833,0.0152],["2026-04-29",1.7762,0.0175],["2026-04-30",1.7528,-0.0116],["2026-05-01",1.5225,-0.0023],["2026-05-02",1.4830,-0.0146],["2026-05-03",1.4982,-0.0004],["2026-05-04",1.4346,0.0009],["2026-05-05",1.4306,0.0114],["2026-05-06",1.4441,0.0239],["2026-05-07",1.4075,0.0343],["2026-05-08",1.4093,0.0226],["2026-05-09",1.3832,0.0373],["2026-05-10",1.4226,-0.0007],["2026-05-11",1.4984,0.0368],["2026-05-12",1.4316,-0.0071],["2026-05-13",1.3644,0.0117],["2026-05-14",1.4375,0.0005],["2026-05-15",1.5440,-0.0130],["2026-05-16",1.4341,-0.0211],["2026-05-17",1.4367,0.0009],["2026-05-18",1.3326,-0.0093],["2026-05-19",1.3582,0.0069],["2026-05-20",1.3995,0.0008],["2026-05-21",1.3402,0.0038],["2026-05-22",1.3768,0.0323],["2026-05-23",1.3814,-0.0090],["2026-05-24",1.3427,-0.0004],["2026-05-25",1.4172,-0.0179],["2026-05-26",1.2988,0.0072],["2026-05-27",1.3755,0.0129],["2026-05-28",1.4260,0.0098],["2026-05-29",1.4499,0.0083],["2026-05-30",1.4753,0.0398],["2026-05-31",1.4073,-0.0051],["2026-06-01",1.3671,0.0137],["2026-06-02",1.4108,0.0159],["2026-06-03",1.3370,-0.0107],["2026-06-04",1.3404,0.0259],["2026-06-05",1.3952,-0.0465],["2026-06-06",1.4096,-0.0413],["2026-06-07",1.4063,0.0069],["2026-06-08",1.4364,0.0120],["2026-06-09",1.2523,0.0125],["2026-06-10",1.2052,0.0033],["2026-06-11",1.2815,-0.0181],["2026-06-12",1.5409,-0.0017],["2026-06-13",1.5588,0.0332],["2026-06-14",1.3442,0.0217],["2026-06-15",1.4106,-0.0081],["2026-06-16",1.2782,0.0061],["2026-06-17",1.2536,0.0041],["2026-06-18",1.1799,0.0118],["2026-06-19",1.2276,0.0028],["2026-06-20",1.2739,-0.0193],["2026-06-21",1.2801,-0.0020]]'>
+      <!-- 축 -->
+      <line class="ts-axis" x1="46" y1="274" x2="768" y2="274"/>
+      <!-- 알파 0선 (범위에 0 포함 시) -->
+      <line class="ts-zero" x1="46" y1="170.4" x2="768" y2="170.4"/>
+      <!-- 좌축 눈금 (코호트 강도) / 우축 눈금 (알파 %p) -->
+      
+        
+        <text class="ts-tick cohort" x="38" y="277.0" text-anchor="end">1.13</text>
+        
+        <text class="ts-tick alpha" x="776" y="277.0" text-anchor="start">-5.6</text>
+      
+        
+        <text class="ts-tick cohort" x="38" y="190.3" text-anchor="end">1.36</text>
+        
+        <text class="ts-tick alpha" x="776" y="190.3" text-anchor="start">-0.9</text>
+      
+        
+        <text class="ts-tick cohort" x="38" y="103.7" text-anchor="end">1.59</text>
+        
+        <text class="ts-tick alpha" x="776" y="103.7" text-anchor="start">+3.8</text>
+      
+        
+        <text class="ts-tick cohort" x="38" y="17.0" text-anchor="end">1.82</text>
+        
+        <text class="ts-tick alpha" x="776" y="17.0" text-anchor="start">+8.5</text>
+      
+      <!-- x축 날짜 (6개 솎음) -->
+      
+        
+        
+        <text class="ts-tick" x="46.0" y="290" text-anchor="middle">25-12</text>
+      
+        
+        
+        <text class="ts-tick" x="188.8" y="290" text-anchor="middle">26-01</text>
+      
+        
+        
+        <text class="ts-tick" x="335.6" y="290" text-anchor="middle">26-03</text>
+      
+        
+        
+        <text class="ts-tick" x="478.4" y="290" text-anchor="middle">26-04</text>
+      
+        
+        
+        <text class="ts-tick" x="625.2" y="290" text-anchor="middle">26-05</text>
+      
+        
+        
+        <text class="ts-tick" x="768.0" y="290" text-anchor="middle">26-06</text>
+      
+      <!-- 코호트 강도 (좌축) -->
+      <polyline class="ts-line-cohort" points="46.0,132.7 50.0,168.6 53.9,154.1 57.9,197.9 61.9,181.9 65.8,192.4 69.8,159.5 73.8,121.1 77.7,106.6 81.7,88.8 85.7,111.0 89.6,85.8 93.6,63.5 97.6,51.7 101.5,80.5 105.5,110.8 109.5,129.8 113.4,133.8 117.4,128.8 121.4,137.8 125.3,125.5 129.3,146.3 133.3,170.5 137.2,140.9 141.2,159.8 145.2,154.9 149.1,154.2 153.1,83.1 157.1,63.1 161.0,99.6 165.0,138.9 169.0,101.6 172.9,66.7 176.9,82.3 180.9,141.5 184.8,96.6 188.8,94.1 192.8,100.5 196.7,150.9 200.7,123.1 204.7,81.8 208.6,62.9 212.6,97.1 216.6,89.5 220.5,78.0 224.5,88.7 228.5,76.6 232.5,171.1 236.4,145.7 240.4,150.4 244.4,181.2 248.3,170.7 252.3,181.9 256.3,163.0 260.2,157.4 264.2,114.9 268.2,113.0 272.1,94.6 276.1,96.8 280.1,97.3 284.0,135.6 288.0,112.8 292.0,111.1 295.9,97.6 299.9,116.1 303.9,164.5 307.8,164.4 311.8,143.6 315.8,105.6 319.7,126.4 323.7,129.9 327.7,171.3 331.6,184.6 335.6,158.6 339.6,155.5 343.5,155.7 347.5,149.9 351.5,180.6 355.4,173.3 359.4,188.4 363.4,177.3 367.3,197.2 371.3,186.1 375.3,182.4 379.2,171.4 383.2,144.5 387.2,160.3 391.1,171.4 395.1,173.9 399.1,155.0 403.0,185.9 407.0,188.5 411.0,185.7 414.9,154.1 418.9,153.6 422.9,181.3 426.8,167.9 430.8,157.8 434.8,175.8 438.7,151.3 442.7,176.8 446.7,100.8 450.6,140.9 454.6,96.5 458.6,156.9 462.5,137.9 466.5,150.6 470.5,165.6 474.4,140.3 478.4,155.4 482.4,143.3 486.3,163.1 490.3,169.8 494.3,169.7 498.2,123.8 502.2,161.7 506.2,159.2 510.1,136.7 514.1,131.5 518.1,164.1 522.0,170.2 526.0,174.8 530.0,170.0 533.9,159.9 537.9,72.7 541.9,42.3 545.8,61.3 549.8,97.2 553.8,66.9 557.7,31.9 561.7,40.7 565.7,127.3 569.6,142.1 573.6,136.4 577.6,160.3 581.5,161.8 585.5,156.8 589.5,170.5 593.5,169.8 597.4,179.7 601.4,164.8 605.4,136.4 609.3,161.5 613.3,186.7 617.3,159.2 621.2,119.2 625.2,160.5 629.2,159.5 633.1,198.7 637.1,189.0 641.1,173.5 645.0,195.8 649.0,182.1 653.0,180.3 656.9,194.9 660.9,166.9 664.9,211.4 668.8,182.5 672.8,163.6 676.8,154.6 680.7,145.0 684.7,170.6 688.7,185.7 692.6,169.3 696.6,197.0 700.6,195.7 704.5,175.1 708.5,169.7 712.5,171.0 716.4,159.7 720.4,228.9 724.4,246.6 728.3,217.9 732.3,120.4 736.3,113.6 740.2,194.3 744.2,169.4 748.2,219.1 752.1,228.4 756.1,256.1 760.1,238.1 764.0,220.7 768.0,218.4 "/>
+      <!-- 알파 (우축) -->
+      <polyline class="ts-line-alpha" points="46.0,175.0 50.0,199.3 53.9,194.4 57.9,193.3 61.9,173.9 65.8,171.0 69.8,121.3 73.8,113.2 77.7,183.3 81.7,187.4 85.7,176.9 89.6,166.0 93.6,75.0 97.6,31.9 101.5,166.9 105.5,67.1 109.5,182.4 113.4,142.1 117.4,197.5 121.4,203.0 125.3,143.9 129.3,179.3 133.3,180.6 137.2,189.8 141.2,113.2 145.2,199.2 149.1,199.2 153.1,110.4 157.1,170.1 161.0,205.1 165.0,177.1 169.0,179.3 172.9,126.2 176.9,196.0 180.9,169.5 184.8,132.1 188.8,201.6 192.8,144.1 196.7,112.4 200.7,163.2 204.7,173.7 208.6,203.4 212.6,206.9 216.6,148.0 220.5,139.7 224.5,158.6 228.5,143.4 232.5,182.4 236.4,181.1 240.4,143.4 244.4,227.5 248.3,164.9 252.3,193.6 256.3,162.5 260.2,106.3 264.2,135.1 268.2,41.0 272.1,213.9 276.1,122.0 280.1,158.8 284.0,194.2 288.0,178.0 292.0,151.6 295.9,184.1 299.9,193.1 303.9,189.8 307.8,188.7 311.8,117.2 315.8,178.7 319.7,192.9 323.7,168.6 327.7,186.8 331.6,213.9 335.6,176.7 339.6,194.7 343.5,169.9 347.5,169.1 351.5,175.8 355.4,161.4 359.4,190.5 363.4,164.4 367.3,161.4 371.3,148.0 375.3,187.9 379.2,173.0 383.2,158.6 387.2,102.3 391.1,191.8 395.1,183.0 399.1,174.7 403.0,183.0 407.0,155.5 411.0,191.4 414.9,176.7 418.9,114.1 422.9,170.1 426.8,181.5 430.8,165.3 434.8,166.9 438.7,174.5 442.7,169.9 446.7,134.9 450.6,154.0 454.6,157.7 458.6,126.0 462.5,161.6 466.5,201.9 470.5,187.7 474.4,142.4 478.4,201.9 482.4,184.4 486.3,206.7 490.3,170.2 494.3,181.8 498.2,180.4 502.2,208.0 506.2,144.5 510.1,108.5 514.1,210.0 518.1,214.4 522.0,191.2 526.0,176.5 530.0,163.8 533.9,202.5 537.9,93.4 541.9,171.7 545.8,164.4 549.8,178.3 553.8,142.4 557.7,138.2 561.7,191.8 565.7,174.7 569.6,197.3 573.6,171.2 577.6,168.8 581.5,149.4 585.5,126.4 589.5,107.3 593.5,128.8 597.4,101.7 601.4,171.7 605.4,102.7 609.3,183.5 613.3,148.9 617.3,169.5 621.2,194.4 625.2,209.3 629.2,168.8 633.1,187.6 637.1,157.7 641.1,169.0 645.0,163.4 649.0,110.9 653.0,187.0 656.9,171.2 660.9,203.4 664.9,157.2 668.8,146.7 672.8,152.4 676.8,155.1 680.7,97.1 684.7,179.8 688.7,145.2 692.6,141.1 696.6,190.1 700.6,122.7 704.5,256.1 708.5,246.5 712.5,157.7 716.4,148.3 720.4,147.4 724.4,164.4 728.3,203.8 732.3,173.6 736.3,109.3 740.2,130.5 744.2,185.3 748.2,159.2 752.1,162.9 756.1,148.7 760.1,165.3 764.0,206.0 768.0,174.1 "/>
+      <!-- 호버: 크로스헤어 + 양축 포커스 점 + 투명 히트영역 -->
+      <line class="ts-cross" x1="46" y1="14" x2="46" y2="274" style="display:none"/>
+      <circle class="ts-dot-cohort" r="3.5" cx="46" cy="14" style="display:none"/>
+      <circle class="ts-dot-alpha" r="3" cx="46" cy="14" style="display:none"/>
+      <rect class="ts-hit" x="46" y="14" width="722" height="260" pointer-events="all"/>
+    </g>
+  
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <g class="ts-group " data-range="3m"
+       data-ml="46" data-pw="722" data-mt="14" data-ph="260"
+       data-clo="1.1322" data-chi="1.8239"
+       data-alo="-0.0536" data-ahi="0.0489"
+       data-points='[["2026-03-22",1.3597,0.0081],["2026-03-23",1.3671,-0.0114],["2026-03-24",1.4513,-0.0034],["2026-03-25",1.4524,0.0306],["2026-03-26",1.3788,0.0002],["2026-03-27",1.4144,-0.0060],["2026-03-28",1.4413,0.0028],["2026-03-29",1.3934,0.0019],["2026-03-30",1.4587,-0.0022],["2026-03-31",1.3909,0.0003],["2026-04-01",1.5929,0.0193],["2026-04-02",1.4863,0.0089],["2026-04-03",1.6045,0.0069],["2026-04-04",1.4437,0.0241],["2026-04-05",1.4942,0.0048],["2026-04-06",1.4604,-0.0171],["2026-04-07",1.4206,-0.0094],["2026-04-08",1.4880,0.0152],["2026-04-09",1.4476,-0.0171],["2026-04-10",1.4799,-0.0076],["2026-04-11",1.4273,-0.0197],["2026-04-12",1.4095,0.0001],["2026-04-13",1.4098,-0.0062],["2026-04-14",1.5318,-0.0054],["2026-04-15",1.4309,-0.0204],["2026-04-16",1.4375,0.0141],["2026-04-17",1.4974,0.0336],["2026-04-18",1.5113,-0.0215],["2026-04-19",1.4246,-0.0239],["2026-04-20",1.4084,-0.0113],["2026-04-21",1.3961,-0.0033],["2026-04-22",1.4090,0.0036],["2026-04-23",1.4358,-0.0174],["2026-04-24",1.6677,0.0418],["2026-04-25",1.7487,-0.0007],["2026-04-26",1.6981,0.0033],["2026-04-27",1.6025,-0.0043],["2026-04-28",1.6833,0.0152],["2026-04-29",1.7762,0.0175],["2026-04-30",1.7528,-0.0116],["2026-05-01",1.5225,-0.0023],["2026-05-02",1.4830,-0.0146],["2026-05-03",1.4982,-0.0004],["2026-05-04",1.4346,0.0009],["2026-05-05",1.4306,0.0114],["2026-05-06",1.4441,0.0239],["2026-05-07",1.4075,0.0343],["2026-05-08",1.4093,0.0226],["2026-05-09",1.3832,0.0373],["2026-05-10",1.4226,-0.0007],["2026-05-11",1.4984,0.0368],["2026-05-12",1.4316,-0.0071],["2026-05-13",1.3644,0.0117],["2026-05-14",1.4375,0.0005],["2026-05-15",1.5440,-0.0130],["2026-05-16",1.4341,-0.0211],["2026-05-17",1.4367,0.0009],["2026-05-18",1.3326,-0.0093],["2026-05-19",1.3582,0.0069],["2026-05-20",1.3995,0.0008],["2026-05-21",1.3402,0.0038],["2026-05-22",1.3768,0.0323],["2026-05-23",1.3814,-0.0090],["2026-05-24",1.3427,-0.0004],["2026-05-25",1.4172,-0.0179],["2026-05-26",1.2988,0.0072],["2026-05-27",1.3755,0.0129],["2026-05-28",1.4260,0.0098],["2026-05-29",1.4499,0.0083],["2026-05-30",1.4753,0.0398],["2026-05-31",1.4073,-0.0051],["2026-06-01",1.3671,0.0137],["2026-06-02",1.4108,0.0159],["2026-06-03",1.3370,-0.0107],["2026-06-04",1.3404,0.0259],["2026-06-05",1.3952,-0.0465],["2026-06-06",1.4096,-0.0413],["2026-06-07",1.4063,0.0069],["2026-06-08",1.4364,0.0120],["2026-06-09",1.2523,0.0125],["2026-06-10",1.2052,0.0033],["2026-06-11",1.2815,-0.0181],["2026-06-12",1.5409,-0.0017],["2026-06-13",1.5588,0.0332],["2026-06-14",1.3442,0.0217],["2026-06-15",1.4106,-0.0081],["2026-06-16",1.2782,0.0061],["2026-06-17",1.2536,0.0041],["2026-06-18",1.1799,0.0118],["2026-06-19",1.2276,0.0028],["2026-06-20",1.2739,-0.0193],["2026-06-21",1.2801,-0.0020]]'>
+      <!-- 축 -->
+      <line class="ts-axis" x1="46" y1="274" x2="768" y2="274"/>
+      <!-- 알파 0선 (범위에 0 포함 시) -->
+      <line class="ts-zero" x1="46" y1="138.0" x2="768" y2="138.0"/>
+      <!-- 좌축 눈금 (코호트 강도) / 우축 눈금 (알파 %p) -->
+      
+        
+        <text class="ts-tick cohort" x="38" y="277.0" text-anchor="end">1.13</text>
+        
+        <text class="ts-tick alpha" x="776" y="277.0" text-anchor="start">-5.4</text>
+      
+        
+        <text class="ts-tick cohort" x="38" y="190.3" text-anchor="end">1.36</text>
+        
+        <text class="ts-tick alpha" x="776" y="190.3" text-anchor="start">-1.9</text>
+      
+        
+        <text class="ts-tick cohort" x="38" y="103.7" text-anchor="end">1.59</text>
+        
+        <text class="ts-tick alpha" x="776" y="103.7" text-anchor="start">+1.5</text>
+      
+        
+        <text class="ts-tick cohort" x="38" y="17.0" text-anchor="end">1.82</text>
+        
+        <text class="ts-tick alpha" x="776" y="17.0" text-anchor="start">+4.9</text>
+      
+      <!-- x축 날짜 (6개 솎음) -->
+      
+        
+        
+        <text class="ts-tick" x="46.0" y="290" text-anchor="middle">03-22</text>
+      
+        
+        
+        <text class="ts-tick" x="188.8" y="290" text-anchor="middle">04-09</text>
+      
+        
+        
+        <text class="ts-tick" x="331.6" y="290" text-anchor="middle">04-27</text>
+      
+        
+        
+        <text class="ts-tick" x="482.4" y="290" text-anchor="middle">05-16</text>
+      
+        
+        
+        <text class="ts-tick" x="625.2" y="290" text-anchor="middle">06-03</text>
+      
+        
+        
+        <text class="ts-tick" x="768.0" y="290" text-anchor="middle">06-21</text>
+      
+      <!-- 코호트 강도 (좌축) -->
+      <polyline class="ts-line-cohort" points="46.0,188.5 53.9,185.7 61.9,154.1 69.8,153.6 77.7,181.3 85.7,167.9 93.6,157.8 101.5,175.8 109.5,151.3 117.4,176.8 125.3,100.8 133.3,140.9 141.2,96.5 149.1,156.9 157.1,137.9 165.0,150.6 172.9,165.6 180.9,140.3 188.8,155.4 196.7,143.3 204.7,163.1 212.6,169.8 220.5,169.7 228.5,123.8 236.4,161.7 244.4,159.2 252.3,136.7 260.2,131.5 268.2,164.1 276.1,170.2 284.0,174.8 292.0,170.0 299.9,159.9 307.8,72.7 315.8,42.3 323.7,61.3 331.6,97.2 339.6,66.9 347.5,31.9 355.4,40.7 363.4,127.3 371.3,142.1 379.2,136.4 387.2,160.3 395.1,161.8 403.0,156.8 411.0,170.5 418.9,169.8 426.8,179.7 434.8,164.8 442.7,136.4 450.6,161.5 458.6,186.7 466.5,159.2 474.4,119.2 482.4,160.5 490.3,159.5 498.2,198.7 506.2,189.0 514.1,173.5 522.0,195.8 530.0,182.1 537.9,180.3 545.8,194.9 553.8,166.9 561.7,211.4 569.6,182.5 577.6,163.6 585.5,154.6 593.5,145.0 601.4,170.6 609.3,185.7 617.3,169.3 625.2,197.0 633.1,195.7 641.1,175.1 649.0,169.7 656.9,171.0 664.9,159.7 672.8,228.9 680.7,246.6 688.7,217.9 696.6,120.4 704.5,113.6 712.5,194.3 720.4,169.4 728.3,219.1 736.3,228.4 744.2,256.1 752.1,238.1 760.1,220.7 768.0,218.4 "/>
+      <!-- 알파 (우축) -->
+      <polyline class="ts-line-alpha" points="46.0,117.5 53.9,167.0 61.9,146.7 69.8,60.4 77.7,137.5 85.7,153.3 93.6,130.9 101.5,133.2 109.5,143.6 117.4,137.3 125.3,89.0 133.3,115.4 141.2,120.5 149.1,76.9 157.1,125.9 165.0,181.4 172.9,161.9 180.9,99.5 188.8,181.4 196.7,157.3 204.7,188.0 212.6,137.8 220.5,153.8 228.5,151.7 236.4,189.8 244.4,102.2 252.3,52.7 260.2,192.6 268.2,198.7 276.1,166.7 284.0,146.4 292.0,128.9 299.9,182.2 307.8,31.9 315.8,139.8 323.7,129.7 331.6,148.9 339.6,99.5 347.5,93.6 355.4,167.5 363.4,143.9 371.3,175.1 379.2,139.1 387.2,135.8 395.1,109.1 403.0,77.4 411.0,51.0 418.9,80.7 426.8,43.4 434.8,139.8 442.7,44.6 450.6,156.1 458.6,108.3 466.5,136.8 474.4,171.0 482.4,191.6 490.3,135.8 498.2,161.6 506.2,120.5 514.1,136.0 522.0,128.4 530.0,56.0 537.9,160.9 545.8,139.1 553.8,183.5 561.7,119.8 569.6,105.3 577.6,113.2 585.5,117.0 593.5,37.0 601.4,151.0 609.3,103.3 617.3,97.7 625.2,165.2 633.1,72.3 641.1,256.1 649.0,242.9 656.9,120.5 664.9,107.6 672.8,106.3 680.7,129.7 688.7,184.0 696.6,142.4 704.5,53.8 712.5,83.0 720.4,158.6 728.3,122.6 736.3,127.6 744.2,108.1 752.1,130.9 760.1,187.0 768.0,143.1 "/>
+      <!-- 호버: 크로스헤어 + 양축 포커스 점 + 투명 히트영역 -->
+      <line class="ts-cross" x1="46" y1="14" x2="46" y2="274" style="display:none"/>
+      <circle class="ts-dot-cohort" r="3.5" cx="46" cy="14" style="display:none"/>
+      <circle class="ts-dot-alpha" r="3" cx="46" cy="14" style="display:none"/>
+      <rect class="ts-hit" x="46" y="14" width="722" height="260" pointer-events="all"/>
+    </g>
+  
+      </svg>
+      <div class="ts-disclosure"><span class="note-label">참고</span>위 그래프는 현재 코생지 v4.1 모델을 과거에 소급 적용해 계산한 결과입니다.</div>
+    </div>
+    
+  </section>
+
+  <!-- ⑨ 코생지란 -->
+  <section>
+    <p class="sec-label">About</p>
+    <h2 class="sec-title">코인 생명력 지표(Coin Liveness Metric)</h2>
+    <div class="about-grid">
+      <div class="card about-body">
+        <p>코인 생명력 지표는 온체인 활동, 소셜 관심도, 거래 모멘텀을 종합해 알트코인의 '생명력'을 측정합니다.</p>
+        <p>초점은 하락 국면에서 자산별로 갈리는 내부 활동의 차이를 포착하는 데 있습니다. 네트워크 사용·거래·관심도가 어느 정도로 유지되는지를 보는 것입니다. 이런 활동이 가격과 함께 무너지지 않은 자산일수록 반등 국면에서 상대적으로 빠른 회복이 나타날 수 있다는 가설에 기반합니다.</p>
+      </div>
+      <div class="card about-side">
+        <div class="k">팩터</div><div class="v">온체인 · 소셜 · 모멘텀</div>
+        <div class="k">데이터 출처</div><div class="v">Santiment · CoinGecko</div>
+      </div>
+    </div>
+    <div class="about-verify">
+      <span class="verify-label">검증</span>
+      <p>코생지를 구간별로 나눠 표본외(OOS)로 비교하면 높은 구간일수록 회복 성과가 단계적으로 개선됩니다. 측정값이 자산의 내부 활력을 잘 반영한다는 신호입니다.</p>
+    </div>
+  </section>
+
+  <!-- ⑩ 푸터 -->
+  <footer class="footer">
+    <div class="footer-row">
+      <span class="footer-note">본 페이지는 시장 동향 파악을 위한 참고 자료이며, 투자 권유가 아닙니다. 데이터 오류 가능성이 존재할 수 있습니다.</span>
+      <span class="brand">© 블록미디어</span>
+    </div>
+  </footer>
+
+</div>
+<script>
+/* ⑧ 시계열 구간 토글 (의존성 X). JS 없으면 기본 1년만 표시(정적 fallback). */
+(function () {
+  var tabs = document.querySelectorAll('.ts-tab');
+  var groups = document.querySelectorAll('.ts-group');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      var r = t.getAttribute('data-range');
+      tabs.forEach(function (x) { x.classList.toggle('active', x === t); });
+      groups.forEach(function (g) { g.classList.toggle('show', g.getAttribute('data-range') === r); });
+    });
+  });
+})();
+
+/* ⑧ 시계열 호버 툴팁 (의존성 X). JS 없으면 정적 차트만 표시. */
+(function () {
+  var svg = document.querySelector('svg.ts');
+  if (!svg || !svg.createSVGPoint) return;
+  var card = svg.closest('.card');
+  if (!card) return;
+  card.style.position = 'relative';
+  var tip = document.createElement('div');
+  tip.className = 'ts-tip';
+  tip.style.display = 'none';
+  card.appendChild(tip);
+
+  function hide() {
+    tip.style.display = 'none';
+    svg.querySelectorAll('.ts-cross,.ts-dot-cohort,.ts-dot-alpha').forEach(function (el) { el.style.display = 'none'; });
+  }
+  function fmtA(a) { var v = a * 100; return (v >= 0 ? '+' : '') + v.toFixed(1) + '%p'; }
+
+  svg.addEventListener('mousemove', function (e) {
+    var g = svg.querySelector('.ts-group.show');
+    if (!g) return;
+    var ml = +g.dataset.ml, pw = +g.dataset.pw, mt = +g.dataset.mt, ph = +g.dataset.ph;
+    var clo = +g.dataset.clo, chi = +g.dataset.chi, alo = +g.dataset.alo, ahi = +g.dataset.ahi;
+    var pts = JSON.parse(g.dataset.points), n = pts.length;
+    if (n < 2) return;
+    // 화면 px → viewBox 좌표 (역행렬)
+    var ctm = svg.getScreenCTM(); if (!ctm) return;
+    var pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    var lx = pt.matrixTransform(ctm.inverse()).x;
+    var frac = (lx - ml) / pw; if (frac < 0) frac = 0; if (frac > 1) frac = 1;
+    var idx = Math.round(frac * (n - 1));
+    var p = pts[idx];                 // [date, cohort, alpha]
+    var x = ml + idx / (n - 1) * pw;
+    var yc = mt + (1 - (p[1] - clo) / (chi - clo)) * ph;
+    var ya = mt + (1 - (p[2] - alo) / (ahi - alo)) * ph;
+    var cross = g.querySelector('.ts-cross');
+    cross.setAttribute('x1', x); cross.setAttribute('x2', x); cross.style.display = '';
+    var dc = g.querySelector('.ts-dot-cohort'); dc.setAttribute('cx', x); dc.setAttribute('cy', yc); dc.style.display = '';
+    var da = g.querySelector('.ts-dot-alpha'); da.setAttribute('cx', x); da.setAttribute('cy', ya); da.style.display = '';
+    tip.innerHTML =
+      '<div class="d">' + p[0] + '</div>' +
+      '<div class="r"><span class="sw" style="background:var(--accent)"></span>TOP 10 평균<b>' + p[1].toFixed(2) + '</b></div>' +
+      '<div class="r"><span class="sw" style="background:var(--series-alpha)"></span>알파 (vs BTC)<b>' + fmtA(p[2]) + '</b></div>';
+    tip.style.display = '';
+    var crect = card.getBoundingClientRect();
+    var tw = tip.offsetWidth, th = tip.offsetHeight;
+    var tx = e.clientX - crect.left + 14, ty = e.clientY - crect.top + 12;
+    if (tx + tw > crect.width) tx = e.clientX - crect.left - tw - 14;
+    if (ty + th > crect.height) ty = crect.height - th - 4;
+    tip.style.left = tx + 'px'; tip.style.top = ty + 'px';
+  });
+  svg.addEventListener('mouseleave', hide);
+})();
+</script>
+</body>
+</html>
