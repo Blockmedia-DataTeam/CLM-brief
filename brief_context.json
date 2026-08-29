@@ -1,7 +1,7 @@
 {
   "as_of_date": "2026-08-28",
-  "updated_date": "2026-08-29",
-  "publish_str": "2026-08-29 (토) 11:22 KST",
+  "updated_date": "2026-08-30",
+  "publish_str": "2026-08-30 (일) 06:53 KST",
   "summary": {
     "market": "코생지 TOP 10의 24시간 평균 변동은 +1.74%로, 비트코인 대비 +0.16%p 높았다.",
     "pattern": "TOP 10 중 0개 종목이 과매도 구간(RSI 35 이하)에 분포하며, 소셜 관심도가 우세한 종목이 다수다.",
@@ -27,7 +27,7 @@
       "rank": 3,
       "symbol": "ETH",
       "logo_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-      "clm": 1.604,
+      "clm": 1.6043,
       "h24": 0.2,
       "rsi": 84.1,
       "driver": "SOCIAL",
@@ -38,7 +38,7 @@
       "rank": 1,
       "symbol": "SOL",
       "logo_url": "https://coin-images.coingecko.com/coins/images/4128/large/solana.png?1718769756",
-      "clm": 1.9273,
+      "clm": 1.9276,
       "h24": 6.99,
       "rsi": 90.3,
       "driver": "SOCIAL",
@@ -49,7 +49,7 @@
       "rank": 8,
       "symbol": "XRP",
       "logo_url": "https://coin-images.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442",
-      "clm": 1.1017,
+      "clm": 1.1014,
       "h24": 2.19,
       "rsi": 82.6,
       "driver": "SOCIAL",
@@ -62,7 +62,7 @@
       "rank": 1,
       "symbol": "SOL",
       "logo_url": "https://coin-images.coingecko.com/coins/images/4128/large/solana.png?1718769756",
-      "clm": 1.9273,
+      "clm": 1.9276,
       "h24": 6.99,
       "rsi": 90.3,
       "driver": "SOCIAL",
@@ -78,7 +78,7 @@
       "rank": 2,
       "symbol": "DOT",
       "logo_url": "https://coin-images.coingecko.com/coins/images/12171/large/polkadot.jpg?1766533446",
-      "clm": 1.7008,
+      "clm": 1.7006,
       "h24": 0.67,
       "rsi": 65.5,
       "driver": "SOCIAL",
@@ -94,7 +94,7 @@
       "rank": 3,
       "symbol": "ETH",
       "logo_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-      "clm": 1.604,
+      "clm": 1.6043,
       "h24": 0.2,
       "rsi": 84.1,
       "driver": "SOCIAL",
@@ -110,7 +110,7 @@
       "rank": 4,
       "symbol": "TRUMP",
       "logo_url": "https://coin-images.coingecko.com/coins/images/53746/large/trump.png?1737171561",
-      "clm": 1.5813,
+      "clm": 1.5811,
       "h24": 9.55,
       "rsi": 74.4,
       "driver": "SOCIAL",
@@ -142,7 +142,7 @@
       "rank": 6,
       "symbol": "TRX",
       "logo_url": "https://coin-images.coingecko.com/coins/images/1094/large/photo_2026-04-13_09-59-16.png?1776048311",
-      "clm": 1.4993,
+      "clm": 1.4989,
       "h24": 0.5,
       "rsi": 56.5,
       "driver": "SOCIAL",
@@ -158,7 +158,7 @@
       "rank": 7,
       "symbol": "PEPE",
       "logo_url": "https://coin-images.coingecko.com/coins/images/29850/large/pepe-token.jpeg?1696528776",
-      "clm": 1.192,
+      "clm": 1.1918,
       "h24": 1.0,
       "rsi": 77.9,
       "driver": "ONCHAIN",
@@ -174,7 +174,7 @@
       "rank": 8,
       "symbol": "XRP",
       "logo_url": "https://coin-images.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442",
-      "clm": 1.1017,
+      "clm": 1.1014,
       "h24": 2.19,
       "rsi": 82.6,
       "driver": "SOCIAL",
@@ -190,7 +190,7 @@
       "rank": 9,
       "symbol": "CC",
       "logo_url": "https://coin-images.coingecko.com/coins/images/70468/large/Canton-Ticker_%281%29.png?1762826299",
-      "clm": 1.0102,
+      "clm": 1.0097,
       "h24": -4.62,
       "rsi": 62.7,
       "driver": "SOCIAL",
@@ -206,7 +206,7 @@
       "rank": 10,
       "symbol": "SHIB",
       "logo_url": "https://coin-images.coingecko.com/coins/images/11939/large/shiba.png?1696511800",
-      "clm": 0.9089,
+      "clm": 0.9087,
       "h24": 1.1,
       "rsi": 65.9,
       "driver": "ONCHAIN",
@@ -224,7 +224,7 @@
       "rank": 1,
       "symbol": "SOL",
       "x": 90.3,
-      "y": 1.9273,
+      "y": 1.9276,
       "h24": 6.99,
       "quadrant": "강세 관찰",
       "label": "1위 SOL +7.0%"
@@ -233,7 +233,7 @@
       "rank": 2,
       "symbol": "DOT",
       "x": 65.5,
-      "y": 1.7008,
+      "y": 1.7006,
       "h24": 0.67,
       "quadrant": "관심",
       "label": "2위 DOT +0.7%"
@@ -242,7 +242,7 @@
       "rank": 3,
       "symbol": "ETH",
       "x": 84.1,
-      "y": 1.604,
+      "y": 1.6043,
       "h24": 0.2,
       "quadrant": "강세 관찰",
       "label": "3위 ETH +0.2%"
@@ -251,7 +251,7 @@
       "rank": 4,
       "symbol": "TRUMP",
       "x": 74.4,
-      "y": 1.5813,
+      "y": 1.5811,
       "h24": 9.55,
       "quadrant": "강세 관찰",
       "label": "4위 TRUMP +9.5%"
@@ -269,7 +269,7 @@
       "rank": 6,
       "symbol": "TRX",
       "x": 56.5,
-      "y": 1.4993,
+      "y": 1.4989,
       "h24": 0.5,
       "quadrant": "관망",
       "label": "6위 TRX +0.5%"
@@ -278,7 +278,7 @@
       "rank": 7,
       "symbol": "PEPE",
       "x": 77.9,
-      "y": 1.192,
+      "y": 1.1918,
       "h24": 1.0,
       "quadrant": "과열 주의",
       "label": "7위 PEPE +1.0%"
@@ -287,7 +287,7 @@
       "rank": 8,
       "symbol": "XRP",
       "x": 82.6,
-      "y": 1.1017,
+      "y": 1.1014,
       "h24": 2.19,
       "quadrant": "과열 주의",
       "label": "8위 XRP +2.2%"
@@ -296,7 +296,7 @@
       "rank": 9,
       "symbol": "CC",
       "x": 62.7,
-      "y": 1.0102,
+      "y": 1.0097,
       "h24": -4.62,
       "quadrant": "관망",
       "label": "9위 CC -4.6%"
@@ -305,7 +305,7 @@
       "rank": 10,
       "symbol": "SHIB",
       "x": 65.9,
-      "y": 0.9089,
+      "y": 0.9087,
       "h24": 1.1,
       "quadrant": "관망",
       "label": "10위 SHIB +1.1%"
@@ -325,11 +325,6 @@
     "as_of": "2026-08-28",
     "unit": "cohort_strength = Top10 평균 CLM (코호트 강도) / alpha = Top10 24h 평균 − BTC 24h (contemporaneous 동시점 상대강도, 포워드 수익 아님)",
     "series": [
-      {
-        "date": "2025-08-29",
-        "cohort_strength": 1.2987,
-        "alpha": 0.1454
-      },
       {
         "date": "2025-08-30",
         "cohort_strength": 1.2484,
@@ -362,8 +357,8 @@
       },
       {
         "date": "2025-09-05",
-        "cohort_strength": 1.3383,
-        "alpha": -0.0128
+        "cohort_strength": 1.2679,
+        "alpha": -0.0236
       },
       {
         "date": "2025-09-06",
@@ -2147,7 +2142,7 @@
       },
       {
         "date": "2026-08-28",
-        "cohort_strength": 1.4065,
+        "cohort_strength": 1.4063,
         "alpha": 0.0016
       }
     ],
