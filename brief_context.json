@@ -1,35 +1,35 @@
 {
-  "as_of_date": "2026-09-11",
-  "updated_date": "2026-09-13",
-  "publish_str": "2026-09-13 (일) 06:33 KST",
+  "as_of_date": "2026-09-12",
+  "updated_date": "2026-09-14",
+  "publish_str": "2026-09-14 (월) 06:34 KST",
   "summary": {
-    "market": "코생지 TOP 10의 24시간 평균 변동은 -4.02%로, 비트코인 대비 -1.81%p 낮았다.",
-    "pattern": "TOP 10 중 3개 종목이 과매도 구간(RSI 35 이하)에 분포하며, 소셜 관심도가 우세한 종목이 다수다.",
-    "focus": "코생지가 높으면서 과매도 구간에 함께 해당하는 종목은 SOL, TRUMP이다."
+    "market": "코생지 TOP 10의 24시간 평균 변동은 +2.18%로, 비트코인 대비 +1.34%p 높았다.",
+    "pattern": "TOP 10 중 1개 종목이 과매도 구간(RSI 35 이하)에 분포하며, 소셜 관심도가 우세한 종목이 다수다.",
+    "focus": "코생지가 높으면서 과매도 구간에 함께 해당하는 종목은 TRUMP이다."
   },
   "dashboard": {
-    "top10_avg": -4.02,
-    "median": -3.98,
-    "ex_top1_avg": -4.2,
+    "top10_avg": 2.18,
+    "median": 2.08,
+    "ex_top1_avg": 2.99,
     "best": {
-      "symbol": "ETH",
-      "pct": -1.22
+      "symbol": "JUP",
+      "pct": 9.2
     },
     "worst": {
-      "symbol": "PEPE",
-      "pct": -6.95
+      "symbol": "DOT",
+      "pct": -5.07
     },
-    "btc": -2.21,
-    "alpha": -1.81
+    "btc": 0.85,
+    "alpha": 1.34
   },
   "majors": [
     {
       "rank": 2,
       "symbol": "ETH",
       "logo_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-      "clm": 1.8737,
-      "h24": -1.22,
-      "rsi": 43.3,
+      "clm": 1.7424,
+      "h24": 3.17,
+      "rsi": 56.4,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높음"
@@ -38,20 +38,20 @@
       "rank": 3,
       "symbol": "SOL",
       "logo_url": "https://coin-images.coingecko.com/coins/images/4128/large/solana.png?1718769756",
-      "clm": 1.7862,
-      "h24": -2.89,
-      "rsi": 34.2,
+      "clm": 1.7335,
+      "h24": 3.82,
+      "rsi": 47.3,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
-      "comment": "소셜 관심도가 높으나 가격은 과매도 구간"
+      "comment": "소셜 관심도가 높음"
     },
     {
-      "rank": 7,
+      "rank": 9,
       "symbol": "XRP",
       "logo_url": "https://coin-images.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442",
-      "clm": 1.0957,
-      "h24": -4.35,
-      "rsi": 37.5,
+      "clm": 1.0173,
+      "h24": 1.63,
+      "rsi": 46.8,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높음"
@@ -62,9 +62,9 @@
       "rank": 1,
       "symbol": "DOT",
       "logo_url": "https://coin-images.coingecko.com/coins/images/12171/large/polkadot.jpg?1766533446",
-      "clm": 2.5551,
-      "h24": -2.35,
-      "rsi": 66.5,
+      "clm": 2.3025,
+      "h24": -5.07,
+      "rsi": 64.2,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높음",
@@ -78,15 +78,15 @@
       "rank": 2,
       "symbol": "ETH",
       "logo_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-      "clm": 1.8737,
-      "h24": -1.22,
-      "rsi": 43.3,
+      "clm": 1.7424,
+      "h24": 3.17,
+      "rsi": 56.4,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높음",
       "contrib": {
-        "onchain": 33,
-        "social": 67,
+        "onchain": 35,
+        "social": 65,
         "momentum": 0
       }
     },
@@ -94,15 +94,15 @@
       "rank": 3,
       "symbol": "SOL",
       "logo_url": "https://coin-images.coingecko.com/coins/images/4128/large/solana.png?1718769756",
-      "clm": 1.7862,
-      "h24": -2.89,
-      "rsi": 34.2,
+      "clm": 1.7335,
+      "h24": 3.82,
+      "rsi": 47.3,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
-      "comment": "소셜 관심도가 높으나 가격은 과매도 구간",
+      "comment": "소셜 관심도가 높음",
       "contrib": {
-        "onchain": 38,
-        "social": 62,
+        "onchain": 39,
+        "social": 61,
         "momentum": 0
       }
     },
@@ -110,40 +110,40 @@
       "rank": 4,
       "symbol": "TRUMP",
       "logo_url": "https://coin-images.coingecko.com/coins/images/53746/large/trump.png?1737171561",
-      "clm": 1.5254,
-      "h24": -4.37,
-      "rsi": 31.4,
+      "clm": 1.4777,
+      "h24": 2.08,
+      "rsi": 24.5,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높으나 가격은 과매도 구간",
       "contrib": {
-        "onchain": 12,
-        "social": 73,
-        "momentum": 15
+        "onchain": 14,
+        "social": 76,
+        "momentum": 10
       }
     },
     {
       "rank": 5,
-      "symbol": "PEPE",
-      "logo_url": "https://coin-images.coingecko.com/coins/images/29850/large/pepe-token.jpeg?1696528776",
-      "clm": 1.2472,
-      "h24": -6.95,
-      "rsi": 32.1,
-      "driver": "ONCHAIN",
-      "driver_kr": "온체인",
-      "comment": "온체인 활동이 활발하나 가격은 과매도 구간",
+      "symbol": "PIEVERSE",
+      "logo_url": "https://coin-images.coingecko.com/coins/images/68773/large/pieverse.png?1756546685",
+      "clm": 1.2668,
+      "h24": 3.55,
+      "rsi": 62.8,
+      "driver": "MOMENTUM",
+      "driver_kr": "모멘텀",
+      "comment": "가격 모멘텀이 유지되는 상태",
       "contrib": {
-        "onchain": 89,
+        "onchain": 0,
         "social": 0,
-        "momentum": 11
+        "momentum": 100
       }
     },
     {
       "rank": 6,
       "symbol": "CC",
       "logo_url": "https://coin-images.coingecko.com/coins/images/70468/large/Canton-Ticker_%281%29.png?1762826299",
-      "clm": 1.131,
-      "h24": -6.63,
+      "clm": 1.1967,
+      "h24": -0.32,
       "rsi": 36.8,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
@@ -156,11 +156,43 @@
     },
     {
       "rank": 7,
+      "symbol": "PEPE",
+      "logo_url": "https://coin-images.coingecko.com/coins/images/29850/large/pepe-token.jpeg?1696528776",
+      "clm": 1.1726,
+      "h24": 2.08,
+      "rsi": 38.5,
+      "driver": "ONCHAIN",
+      "driver_kr": "온체인",
+      "comment": "온체인 활동이 활발함",
+      "contrib": {
+        "onchain": 90,
+        "social": 0,
+        "momentum": 10
+      }
+    },
+    {
+      "rank": 8,
+      "symbol": "JUP",
+      "logo_url": "https://coin-images.coingecko.com/coins/images/34188/large/jup.png?1704266489",
+      "clm": 1.1368,
+      "h24": 9.2,
+      "rsi": 55.9,
+      "driver": "SOCIAL",
+      "driver_kr": "소셜",
+      "comment": "소셜 관심도가 높음",
+      "contrib": {
+        "onchain": 26,
+        "social": 48,
+        "momentum": 26
+      }
+    },
+    {
+      "rank": 9,
       "symbol": "XRP",
       "logo_url": "https://coin-images.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442",
-      "clm": 1.0957,
-      "h24": -4.35,
-      "rsi": 37.5,
+      "clm": 1.0173,
+      "h24": 1.63,
+      "rsi": 46.8,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높음",
@@ -171,50 +203,18 @@
       }
     },
     {
-      "rank": 8,
+      "rank": 10,
       "symbol": "DOGE",
       "logo_url": "https://coin-images.coingecko.com/coins/images/5/large/dogecoin.png?1696501409",
-      "clm": 1.0122,
-      "h24": -3.81,
-      "rsi": 40.3,
+      "clm": 1.0014,
+      "h24": 1.7,
+      "rsi": 48.4,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높음",
       "contrib": {
-        "onchain": 33,
-        "social": 67,
-        "momentum": 0
-      }
-    },
-    {
-      "rank": 9,
-      "symbol": "SHIB",
-      "logo_url": "https://coin-images.coingecko.com/coins/images/11939/large/shiba.png?1696511800",
-      "clm": 0.7497,
-      "h24": -4.15,
-      "rsi": 39.6,
-      "driver": "ONCHAIN",
-      "driver_kr": "온체인",
-      "comment": "온체인 활동이 활발함",
-      "contrib": {
-        "onchain": 100,
-        "social": 0,
-        "momentum": 0
-      }
-    },
-    {
-      "rank": 10,
-      "symbol": "ADA",
-      "logo_url": "https://coin-images.coingecko.com/coins/images/975/large/cardano.png?1696502090",
-      "clm": 0.6866,
-      "h24": -3.45,
-      "rsi": 45.0,
-      "driver": "SOCIAL",
-      "driver_kr": "소셜",
-      "comment": "소셜 관심도가 높음",
-      "contrib": {
-        "onchain": 27,
-        "social": 73,
+        "onchain": 34,
+        "social": 66,
         "momentum": 0
       }
     }
@@ -223,92 +223,92 @@
     {
       "rank": 1,
       "symbol": "DOT",
-      "x": 66.5,
-      "y": 2.5551,
-      "h24": -2.35,
+      "x": 64.2,
+      "y": 2.3025,
+      "h24": -5.07,
       "quadrant": "관심",
-      "label": "1위 DOT -2.3%"
+      "label": "1위 DOT -5.1%"
     },
     {
       "rank": 2,
       "symbol": "ETH",
-      "x": 43.3,
-      "y": 1.8737,
-      "h24": -1.22,
+      "x": 56.4,
+      "y": 1.7424,
+      "h24": 3.17,
       "quadrant": "관심",
-      "label": "2위 ETH -1.2%"
+      "label": "2위 ETH +3.2%"
     },
     {
       "rank": 3,
       "symbol": "SOL",
-      "x": 34.2,
-      "y": 1.7862,
-      "h24": -2.89,
+      "x": 47.3,
+      "y": 1.7335,
+      "h24": 3.82,
       "quadrant": "관심",
-      "label": "3위 SOL -2.9%"
+      "label": "3위 SOL +3.8%"
     },
     {
       "rank": 4,
       "symbol": "TRUMP",
-      "x": 31.4,
-      "y": 1.5254,
-      "h24": -4.37,
-      "quadrant": "관심",
-      "label": "4위 TRUMP -4.4%"
+      "x": 24.5,
+      "y": 1.4777,
+      "h24": 2.08,
+      "quadrant": "관망",
+      "label": "4위 TRUMP +2.1%"
     },
     {
       "rank": 5,
-      "symbol": "PEPE",
-      "x": 32.1,
-      "y": 1.2472,
-      "h24": -6.95,
+      "symbol": "PIEVERSE",
+      "x": 62.8,
+      "y": 1.2668,
+      "h24": 3.55,
       "quadrant": "관망",
-      "label": "5위 PEPE -6.9%"
+      "label": "5위 PIEVERSE +3.5%"
     },
     {
       "rank": 6,
       "symbol": "CC",
       "x": 36.8,
-      "y": 1.131,
-      "h24": -6.63,
+      "y": 1.1967,
+      "h24": -0.32,
       "quadrant": "관망",
-      "label": "6위 CC -6.6%"
+      "label": "6위 CC -0.3%"
     },
     {
       "rank": 7,
-      "symbol": "XRP",
-      "x": 37.5,
-      "y": 1.0957,
-      "h24": -4.35,
+      "symbol": "PEPE",
+      "x": 38.5,
+      "y": 1.1726,
+      "h24": 2.08,
       "quadrant": "관망",
-      "label": "7위 XRP -4.4%"
+      "label": "7위 PEPE +2.1%"
     },
     {
       "rank": 8,
-      "symbol": "DOGE",
-      "x": 40.3,
-      "y": 1.0122,
-      "h24": -3.81,
+      "symbol": "JUP",
+      "x": 55.9,
+      "y": 1.1368,
+      "h24": 9.2,
       "quadrant": "관망",
-      "label": "8위 DOGE -3.8%"
+      "label": "8위 JUP +9.2%"
     },
     {
       "rank": 9,
-      "symbol": "SHIB",
-      "x": 39.6,
-      "y": 0.7497,
-      "h24": -4.15,
+      "symbol": "XRP",
+      "x": 46.8,
+      "y": 1.0173,
+      "h24": 1.63,
       "quadrant": "관망",
-      "label": "9위 SHIB -4.2%"
+      "label": "9위 XRP +1.6%"
     },
     {
       "rank": 10,
-      "symbol": "ADA",
-      "x": 45.0,
-      "y": 0.6866,
-      "h24": -3.45,
+      "symbol": "DOGE",
+      "x": 48.4,
+      "y": 1.0014,
+      "h24": 1.7,
       "quadrant": "관망",
-      "label": "10위 ADA -3.4%"
+      "label": "10위 DOGE +1.7%"
     }
   ],
   "matrix_axis": {
@@ -318,18 +318,13 @@
     ],
     "y": [
       0.5,
-      3.0
+      2.5
     ]
   },
   "timeseries": {
-    "as_of": "2026-09-11",
+    "as_of": "2026-09-12",
     "unit": "cohort_strength = Top10 평균 CLM (코호트 강도) / alpha = Top10 24h 평균 − BTC 24h (contemporaneous 동시점 상대강도, 포워드 수익 아님)",
     "series": [
-      {
-        "date": "2025-09-13",
-        "cohort_strength": 1.736,
-        "alpha": 0.1277
-      },
       {
         "date": "2025-09-14",
         "cohort_strength": 1.6988,
@@ -362,7 +357,7 @@
       },
       {
         "date": "2025-09-20",
-        "cohort_strength": 1.7782,
+        "cohort_strength": 1.6604,
         "alpha": 0.0512
       },
       {
@@ -2144,6 +2139,11 @@
         "date": "2026-09-11",
         "cohort_strength": 1.3663,
         "alpha": -0.0181
+      },
+      {
+        "date": "2026-09-12",
+        "cohort_strength": 1.4048,
+        "alpha": 0.0134
       }
     ],
     "disclosure": "위 그래프는 현재 코생지 v4.1 모델을 과거에 소급 적용해 계산한 결과입니다."
