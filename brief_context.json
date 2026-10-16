@@ -1,46 +1,46 @@
 {
-  "as_of_date": "2026-10-14",
+  "as_of_date": "2026-10-15",
   "updated_date": "2026-10-16",
-  "publish_str": "2026-10-16 (금) 07:34 KST",
+  "publish_str": "2026-10-16 (금) 11:01 KST",
   "summary": {
-    "market": "코생지 TOP 10의 24시간 평균 변동은 +3.72%로, 비트코인 대비 +2.11%p 높았다.",
-    "pattern": "TOP 10 중 4개 종목이 과매도 구간(RSI 35 이하)에 분포하며, 소셜 관심도가 우세한 종목이 다수다.",
-    "focus": "코생지가 높으면서 과매도 구간에 함께 해당하는 종목은 ETH, SOL, XRP이다."
+    "market": "코생지 TOP 10의 24시간 평균 변동은 -2.99%로, 비트코인 대비 -1.17%p 낮았다.",
+    "pattern": "TOP 10 중 5개 종목이 과매도 구간(RSI 35 이하)에 분포하며, 소셜 관심도가 우세한 종목이 다수다.",
+    "focus": "코생지가 높으면서 과매도 구간에 함께 해당하는 종목은 ETH, SOL, SHIB이다."
   },
   "dashboard": {
-    "top10_avg": 3.72,
-    "median": 1.94,
-    "ex_top1_avg": 2.27,
+    "top10_avg": -2.99,
+    "median": -2.76,
+    "ex_top1_avg": -3.2,
     "best": {
-      "symbol": "PRL",
-      "pct": 16.77
+      "symbol": "DOT",
+      "pct": -1.15
     },
     "worst": {
-      "symbol": "DOT",
-      "pct": -0.71
+      "symbol": "CC",
+      "pct": -7.99
     },
-    "btc": 1.61,
-    "alpha": 2.11
+    "btc": -1.82,
+    "alpha": -1.17
   },
   "majors": [
     {
-      "rank": 3,
+      "rank": 2,
       "symbol": "ETH",
       "logo_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-      "clm": 2.0294,
-      "h24": 2.07,
-      "rsi": 34.4,
+      "clm": 2.0369,
+      "h24": -3.08,
+      "rsi": 29.5,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높으나 가격은 과매도 구간"
     },
     {
-      "rank": 4,
+      "rank": 3,
       "symbol": "SOL",
       "logo_url": "https://coin-images.coingecko.com/coins/images/4128/large/solana.png?1718769756",
-      "clm": 1.9335,
-      "h24": 1.05,
-      "rsi": 26.1,
+      "clm": 1.8902,
+      "h24": -2.39,
+      "rsi": 24.7,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높으나 가격은 과매도 구간"
@@ -49,9 +49,9 @@
       "rank": 7,
       "symbol": "XRP",
       "logo_url": "https://coin-images.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442",
-      "clm": 1.3387,
-      "h24": 1.8,
-      "rsi": 30.0,
+      "clm": 1.2773,
+      "h24": -2.53,
+      "rsi": 27.0,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높으나 가격은 과매도 구간"
@@ -60,59 +60,43 @@
   "top10": [
     {
       "rank": 1,
-      "symbol": "PRL",
-      "logo_url": "https://coin-images.coingecko.com/coins/images/102173580/large/pearl.png?1780324634",
-      "clm": 3.318,
-      "h24": 16.77,
-      "rsi": 66.9,
-      "driver": "MOMENTUM",
-      "driver_kr": "모멘텀",
-      "comment": "가격 모멘텀이 유지되는 상태",
-      "contrib": {
-        "onchain": 0,
-        "social": 0,
-        "momentum": 100
-      }
-    },
-    {
-      "rank": 2,
       "symbol": "DOT",
       "logo_url": "https://coin-images.coingecko.com/coins/images/12171/large/polkadot.jpg?1766533446",
-      "clm": 2.1992,
-      "h24": -0.71,
-      "rsi": 47.1,
+      "clm": 2.0621,
+      "h24": -1.15,
+      "rsi": 43.3,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높음",
       "contrib": {
         "onchain": 0,
-        "social": 100,
+        "social": 98,
+        "momentum": 2
+      }
+    },
+    {
+      "rank": 2,
+      "symbol": "ETH",
+      "logo_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+      "clm": 2.0369,
+      "h24": -3.08,
+      "rsi": 29.5,
+      "driver": "SOCIAL",
+      "driver_kr": "소셜",
+      "comment": "소셜 관심도가 높으나 가격은 과매도 구간",
+      "contrib": {
+        "onchain": 34,
+        "social": 66,
         "momentum": 0
       }
     },
     {
       "rank": 3,
-      "symbol": "ETH",
-      "logo_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-      "clm": 2.0294,
-      "h24": 2.07,
-      "rsi": 34.4,
-      "driver": "SOCIAL",
-      "driver_kr": "소셜",
-      "comment": "소셜 관심도가 높으나 가격은 과매도 구간",
-      "contrib": {
-        "onchain": 35,
-        "social": 65,
-        "momentum": 0
-      }
-    },
-    {
-      "rank": 4,
       "symbol": "SOL",
       "logo_url": "https://coin-images.coingecko.com/coins/images/4128/large/solana.png?1718769756",
-      "clm": 1.9335,
-      "h24": 1.05,
-      "rsi": 26.1,
+      "clm": 1.8902,
+      "h24": -2.39,
+      "rsi": 24.7,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높으나 가격은 과매도 구간",
@@ -123,34 +107,50 @@
       }
     },
     {
-      "rank": 5,
+      "rank": 4,
       "symbol": "TRUMP",
       "logo_url": "https://coin-images.coingecko.com/coins/images/53746/large/trump.png?1737171561",
-      "clm": 1.6147,
-      "h24": 2.79,
-      "rsi": 40.8,
+      "clm": 1.6208,
+      "h24": -1.2,
+      "rsi": 37.1,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높음",
       "contrib": {
-        "onchain": 13,
-        "social": 75,
-        "momentum": 12
+        "onchain": 23,
+        "social": 67,
+        "momentum": 10
+      }
+    },
+    {
+      "rank": 5,
+      "symbol": "PEPE",
+      "logo_url": "https://coin-images.coingecko.com/coins/images/29850/large/pepe-token.jpeg?1696528776",
+      "clm": 1.4594,
+      "h24": -2.99,
+      "rsi": 45.3,
+      "driver": "ONCHAIN",
+      "driver_kr": "온체인",
+      "comment": "온체인 활동이 활발함",
+      "contrib": {
+        "onchain": 95,
+        "social": 0,
+        "momentum": 5
       }
     },
     {
       "rank": 6,
-      "symbol": "CC",
-      "logo_url": "https://coin-images.coingecko.com/coins/images/70468/large/Canton-Ticker_%281%29.png?1762826299",
-      "clm": 1.4521,
-      "h24": 4.5,
-      "rsi": 51.4,
-      "driver": "SOCIAL",
-      "driver_kr": "소셜",
-      "comment": "소셜 관심도가 높음",
+      "symbol": "SHIB",
+      "logo_url": "https://coin-images.coingecko.com/coins/images/11939/large/shiba.png?1696511800",
+      "clm": 1.4176,
+      "h24": -2.12,
+      "rsi": 29.9,
+      "driver": "ONCHAIN",
+      "driver_kr": "온체인",
+      "comment": "온체인 활동이 활발하나 가격은 과매도 구간",
       "contrib": {
-        "onchain": 0,
-        "social": 100,
+        "onchain": 97,
+        "social": 3,
         "momentum": 0
       }
     },
@@ -158,9 +158,9 @@
       "rank": 7,
       "symbol": "XRP",
       "logo_url": "https://coin-images.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442",
-      "clm": 1.3387,
-      "h24": 1.8,
-      "rsi": 30.0,
+      "clm": 1.2773,
+      "h24": -2.53,
+      "rsi": 27.0,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높으나 가격은 과매도 구간",
@@ -172,43 +172,11 @@
     },
     {
       "rank": 8,
-      "symbol": "PEPE",
-      "logo_url": "https://coin-images.coingecko.com/coins/images/29850/large/pepe-token.jpeg?1696528776",
-      "clm": 1.1508,
-      "h24": 7.2,
-      "rsi": 48.6,
-      "driver": "ONCHAIN",
-      "driver_kr": "온체인",
-      "comment": "온체인 활동이 활발함",
-      "contrib": {
-        "onchain": 95,
-        "social": 0,
-        "momentum": 5
-      }
-    },
-    {
-      "rank": 9,
-      "symbol": "SHIB",
-      "logo_url": "https://coin-images.coingecko.com/coins/images/11939/large/shiba.png?1696511800",
-      "clm": 1.007,
-      "h24": 0.53,
-      "rsi": 31.9,
-      "driver": "ONCHAIN",
-      "driver_kr": "온체인",
-      "comment": "온체인 활동이 활발하나 가격은 과매도 구간",
-      "contrib": {
-        "onchain": 100,
-        "social": 0,
-        "momentum": 0
-      }
-    },
-    {
-      "rank": 10,
-      "symbol": "BNB",
-      "logo_url": "https://coin-images.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970",
-      "clm": 0.9028,
-      "h24": 1.22,
-      "rsi": 44.3,
+      "symbol": "CC",
+      "logo_url": "https://coin-images.coingecko.com/coins/images/70468/large/Canton-Ticker_%281%29.png?1762826299",
+      "clm": 1.2656,
+      "h24": -7.99,
+      "rsi": 41.3,
       "driver": "SOCIAL",
       "driver_kr": "소셜",
       "comment": "소셜 관심도가 높음",
@@ -217,98 +185,130 @@
         "social": 100,
         "momentum": 0
       }
+    },
+    {
+      "rank": 9,
+      "symbol": "JUP",
+      "logo_url": "https://coin-images.coingecko.com/coins/images/34188/large/jup.png?1704266489",
+      "clm": 0.888,
+      "h24": -3.47,
+      "rsi": 47.2,
+      "driver": "SOCIAL",
+      "driver_kr": "소셜",
+      "comment": "소셜 관심도가 높음",
+      "contrib": {
+        "onchain": 36,
+        "social": 64,
+        "momentum": 0
+      }
+    },
+    {
+      "rank": 10,
+      "symbol": "DOGE",
+      "logo_url": "https://coin-images.coingecko.com/coins/images/5/large/dogecoin.png?1696501409",
+      "clm": 0.8376,
+      "h24": -2.99,
+      "rsi": 27.7,
+      "driver": "SOCIAL",
+      "driver_kr": "소셜",
+      "comment": "소셜 관심도가 높으나 가격은 과매도 구간",
+      "contrib": {
+        "onchain": 48,
+        "social": 52,
+        "momentum": 0
+      }
     }
   ],
   "matrix": [
     {
       "rank": 1,
-      "symbol": "PRL",
-      "x": 66.9,
-      "y": 3.318,
-      "h24": 16.77,
+      "symbol": "DOT",
+      "x": 43.3,
+      "y": 2.0621,
+      "h24": -1.15,
       "quadrant": "관심",
-      "label": "1위 PRL +16.8%"
+      "label": "1위 DOT -1.2%"
     },
     {
       "rank": 2,
-      "symbol": "DOT",
-      "x": 47.1,
-      "y": 2.1992,
-      "h24": -0.71,
+      "symbol": "ETH",
+      "x": 29.5,
+      "y": 2.0369,
+      "h24": -3.08,
       "quadrant": "관심",
-      "label": "2위 DOT -0.7%"
+      "label": "2위 ETH -3.1%"
     },
     {
       "rank": 3,
-      "symbol": "ETH",
-      "x": 34.4,
-      "y": 2.0294,
-      "h24": 2.07,
+      "symbol": "SOL",
+      "x": 24.7,
+      "y": 1.8902,
+      "h24": -2.39,
       "quadrant": "관심",
-      "label": "3위 ETH +2.1%"
+      "label": "3위 SOL -2.4%"
     },
     {
       "rank": 4,
-      "symbol": "SOL",
-      "x": 26.1,
-      "y": 1.9335,
-      "h24": 1.05,
+      "symbol": "TRUMP",
+      "x": 37.1,
+      "y": 1.6208,
+      "h24": -1.2,
       "quadrant": "관심",
-      "label": "4위 SOL +1.1%"
+      "label": "4위 TRUMP -1.2%"
     },
     {
       "rank": 5,
-      "symbol": "TRUMP",
-      "x": 40.8,
-      "y": 1.6147,
-      "h24": 2.79,
-      "quadrant": "관심",
-      "label": "5위 TRUMP +2.8%"
+      "symbol": "PEPE",
+      "x": 45.3,
+      "y": 1.4594,
+      "h24": -2.99,
+      "quadrant": "관망",
+      "label": "5위 PEPE -3.0%"
     },
     {
       "rank": 6,
-      "symbol": "CC",
-      "x": 51.4,
-      "y": 1.4521,
-      "h24": 4.5,
+      "symbol": "SHIB",
+      "x": 29.9,
+      "y": 1.4176,
+      "h24": -2.12,
       "quadrant": "관망",
-      "label": "6위 CC +4.5%"
+      "label": "6위 SHIB -2.1%"
     },
     {
       "rank": 7,
       "symbol": "XRP",
-      "x": 30.0,
-      "y": 1.3387,
-      "h24": 1.8,
+      "x": 27.0,
+      "y": 1.2773,
+      "h24": -2.53,
       "quadrant": "관망",
-      "label": "7위 XRP +1.8%"
+      "label": "7위 XRP -2.5%"
     },
     {
       "rank": 8,
-      "symbol": "PEPE",
-      "x": 48.6,
-      "y": 1.1508,
-      "h24": 7.2,
+      "symbol": "CC",
+      "x": 41.3,
+      "y": 1.2656,
+      "h24": -7.99,
       "quadrant": "관망",
-      "label": "8위 PEPE +7.2%"
+      "label": "8위 CC -8.0%"
     },
     {
       "rank": 9,
-      "symbol": "SHIB",
-      "x": 31.9,
-      "y": 1.007,
-      "h24": 0.53,
+      "symbol": "JUP",
+      "x": 47.2,
+      "y": 0.888,
+      "h24": -3.47,
       "quadrant": "관망",
-      "label": "9위 SHIB +0.5%"
+      "label": "9위 JUP -3.5%"
     },
     {
       "rank": 10,
-      "symbol": "BNB",
-      "x": 44.3,
-      "y": 0.9028,
-      "h24": 1.22,
+      "symbol": "DOGE",
+      "x": 27.7,
+      "y": 0.8376,
+      "h24": -2.99,
       "quadrant": "관망",
-      "label": "10위 BNB +1.2%"
+      "label": "10위 DOGE -3.0%"
     }
   ],
   "matrix_axis": {
@@ -318,11 +318,11 @@
     ],
     "y": [
       0.5,
-      3.5
+      2.5
     ]
   },
   "timeseries": {
-    "as_of": "2026-10-14",
+    "as_of": "2026-10-15",
     "unit": "cohort_strength = Top10 평균 CLM (코호트 강도) / alpha = Top10 24h 평균 − BTC 24h (contemporaneous 동시점 상대강도, 포워드 수익 아님)",
     "series": [
       {
@@ -1572,402 +1572,402 @@
       },
       {
         "date": "2026-06-22",
-        "cohort_strength": 1.6408,
-        "alpha": 0.0064
+        "cohort_strength": 1.4641,
+        "alpha": 0.0048
       },
       {
         "date": "2026-06-23",
-        "cohort_strength": 1.6133,
-        "alpha": 0.0028
+        "cohort_strength": 1.4469,
+        "alpha": -0.0062
       },
       {
         "date": "2026-06-24",
-        "cohort_strength": 1.7375,
-        "alpha": 0.0014
+        "cohort_strength": 1.5407,
+        "alpha": -0.0084
       },
       {
         "date": "2026-06-25",
-        "cohort_strength": 1.686,
-        "alpha": 0.0094
+        "cohort_strength": 1.4717,
+        "alpha": -0.0012
       },
       {
         "date": "2026-06-26",
-        "cohort_strength": 1.8249,
-        "alpha": 0.0
+        "cohort_strength": 1.487,
+        "alpha": -0.0019
       },
       {
         "date": "2026-06-27",
-        "cohort_strength": 1.6682,
-        "alpha": -0.0005
+        "cohort_strength": 1.497,
+        "alpha": 0.0116
       },
       {
         "date": "2026-06-28",
-        "cohort_strength": 1.8496,
-        "alpha": 0.0067
+        "cohort_strength": 1.749,
+        "alpha": 0.0115
       },
       {
         "date": "2026-06-29",
-        "cohort_strength": 1.7436,
-        "alpha": 0.0022
+        "cohort_strength": 1.6985,
+        "alpha": 0.0047
       },
       {
         "date": "2026-06-30",
-        "cohort_strength": 1.6189,
-        "alpha": 0.0063
+        "cohort_strength": 1.5326,
+        "alpha": 0.0054
       },
       {
         "date": "2026-07-01",
-        "cohort_strength": 1.4861,
+        "cohort_strength": 1.4819,
         "alpha": 0.0138
       },
       {
         "date": "2026-07-02",
-        "cohort_strength": 1.5143,
+        "cohort_strength": 1.5124,
         "alpha": -0.0109
       },
       {
         "date": "2026-07-03",
-        "cohort_strength": 1.7183,
+        "cohort_strength": 1.7169,
         "alpha": 0.0132
       },
       {
         "date": "2026-07-04",
-        "cohort_strength": 1.7128,
+        "cohort_strength": 1.7111,
         "alpha": 0.0378
       },
       {
         "date": "2026-07-05",
-        "cohort_strength": 1.5337,
-        "alpha": -0.0028
+        "cohort_strength": 1.5327,
+        "alpha": 0.0021
       },
       {
         "date": "2026-07-06",
-        "cohort_strength": 1.4905,
+        "cohort_strength": 1.4875,
         "alpha": -0.0051
       },
       {
         "date": "2026-07-07",
-        "cohort_strength": 1.5068,
+        "cohort_strength": 1.5054,
         "alpha": -0.0102
       },
       {
         "date": "2026-07-08",
-        "cohort_strength": 1.5091,
+        "cohort_strength": 1.5069,
         "alpha": -0.012
       },
       {
         "date": "2026-07-09",
-        "cohort_strength": 1.419,
+        "cohort_strength": 1.4177,
         "alpha": -0.0058
       },
       {
         "date": "2026-07-10",
-        "cohort_strength": 1.4413,
+        "cohort_strength": 1.4399,
         "alpha": -0.0136
       },
       {
         "date": "2026-07-11",
-        "cohort_strength": 1.5031,
+        "cohort_strength": 1.5019,
         "alpha": 0.0085
       },
       {
         "date": "2026-07-12",
-        "cohort_strength": 1.5568,
+        "cohort_strength": 1.5558,
         "alpha": -0.0093
       },
       {
         "date": "2026-07-13",
-        "cohort_strength": 1.5336,
+        "cohort_strength": 1.533,
         "alpha": -0.0034
       },
       {
         "date": "2026-07-14",
-        "cohort_strength": 1.5614,
+        "cohort_strength": 1.558,
         "alpha": 0.0109
       },
       {
         "date": "2026-07-15",
-        "cohort_strength": 1.4869,
+        "cohort_strength": 1.4862,
         "alpha": -0.0177
       },
       {
         "date": "2026-07-16",
-        "cohort_strength": 1.5251,
+        "cohort_strength": 1.5228,
         "alpha": 0.0159
       },
       {
         "date": "2026-07-17",
-        "cohort_strength": 1.6352,
+        "cohort_strength": 1.6321,
         "alpha": -0.0044
       },
       {
         "date": "2026-07-18",
-        "cohort_strength": 1.6595,
+        "cohort_strength": 1.6572,
         "alpha": -0.0055
       },
       {
         "date": "2026-07-19",
-        "cohort_strength": 1.7005,
+        "cohort_strength": 1.6989,
         "alpha": -0.0059
       },
       {
         "date": "2026-07-20",
-        "cohort_strength": 1.7215,
+        "cohort_strength": 1.7205,
         "alpha": 0.0193
       },
       {
         "date": "2026-07-21",
-        "cohort_strength": 1.6991,
+        "cohort_strength": 1.6975,
         "alpha": 0.0057
       },
       {
         "date": "2026-07-22",
-        "cohort_strength": 1.6921,
+        "cohort_strength": 1.6889,
         "alpha": -0.0144
       },
       {
         "date": "2026-07-23",
-        "cohort_strength": 1.662,
+        "cohort_strength": 1.66,
         "alpha": 0.0064
       },
       {
         "date": "2026-07-24",
-        "cohort_strength": 1.5961,
+        "cohort_strength": 1.5936,
         "alpha": -0.0127
       },
       {
         "date": "2026-07-25",
-        "cohort_strength": 1.7775,
+        "cohort_strength": 1.7726,
         "alpha": 0.0053
       },
       {
         "date": "2026-07-26",
-        "cohort_strength": 1.7727,
+        "cohort_strength": 1.7664,
         "alpha": 0.0198
       },
       {
         "date": "2026-07-27",
-        "cohort_strength": 1.7444,
+        "cohort_strength": 1.7519,
         "alpha": 0.0308
       },
       {
         "date": "2026-07-28",
-        "cohort_strength": 1.7604,
-        "alpha": -0.0073
+        "cohort_strength": 1.6577,
+        "alpha": -0.0118
       },
       {
         "date": "2026-07-29",
-        "cohort_strength": 1.5403,
+        "cohort_strength": 1.54,
         "alpha": -0.0162
       },
       {
         "date": "2026-07-30",
-        "cohort_strength": 1.72,
-        "alpha": -0.0025
+        "cohort_strength": 1.4898,
+        "alpha": -0.0031
       },
       {
         "date": "2026-07-31",
-        "cohort_strength": 1.6251,
+        "cohort_strength": 1.6212,
         "alpha": 0.0031
       },
       {
         "date": "2026-08-01",
-        "cohort_strength": 1.7793,
+        "cohort_strength": 1.7759,
         "alpha": 0.0184
       },
       {
         "date": "2026-08-02",
-        "cohort_strength": 1.8928,
+        "cohort_strength": 1.8895,
         "alpha": 0.013
       },
       {
         "date": "2026-08-03",
-        "cohort_strength": 1.8214,
+        "cohort_strength": 1.8203,
         "alpha": 0.0164
       },
       {
         "date": "2026-08-04",
-        "cohort_strength": 1.5362,
+        "cohort_strength": 1.5328,
         "alpha": 0.0042
       },
       {
         "date": "2026-08-05",
-        "cohort_strength": 1.7584,
+        "cohort_strength": 1.756,
         "alpha": 0.0094
       },
       {
         "date": "2026-08-06",
-        "cohort_strength": 1.7524,
+        "cohort_strength": 1.7499,
         "alpha": -0.0118
       },
       {
         "date": "2026-08-07",
-        "cohort_strength": 1.7634,
+        "cohort_strength": 1.7612,
         "alpha": -0.0038
       },
       {
         "date": "2026-08-08",
-        "cohort_strength": 1.6295,
+        "cohort_strength": 1.626,
         "alpha": -0.0165
       },
       {
         "date": "2026-08-09",
-        "cohort_strength": 1.7238,
+        "cohort_strength": 1.7259,
         "alpha": 0.0201
       },
       {
         "date": "2026-08-10",
-        "cohort_strength": 1.6873,
+        "cohort_strength": 1.6845,
         "alpha": 0.0108
       },
       {
         "date": "2026-08-11",
-        "cohort_strength": 1.6384,
+        "cohort_strength": 1.6366,
         "alpha": 0.0115
       },
       {
         "date": "2026-08-12",
-        "cohort_strength": 1.6459,
+        "cohort_strength": 1.6426,
         "alpha": 0.0131
       },
       {
         "date": "2026-08-13",
-        "cohort_strength": 1.6302,
+        "cohort_strength": 1.6296,
         "alpha": -0.0186
       },
       {
         "date": "2026-08-14",
-        "cohort_strength": 1.5866,
+        "cohort_strength": 1.5842,
         "alpha": 0.008
       },
       {
         "date": "2026-08-15",
-        "cohort_strength": 1.5903,
+        "cohort_strength": 1.5881,
         "alpha": 0.0083
       },
       {
         "date": "2026-08-16",
-        "cohort_strength": 1.5419,
+        "cohort_strength": 1.5391,
         "alpha": -0.0112
       },
       {
         "date": "2026-08-17",
-        "cohort_strength": 1.4466,
+        "cohort_strength": 1.4458,
         "alpha": -0.0044
       },
       {
         "date": "2026-08-18",
-        "cohort_strength": 1.733,
+        "cohort_strength": 1.7297,
         "alpha": -0.0057
       },
       {
         "date": "2026-08-19",
-        "cohort_strength": 1.8062,
+        "cohort_strength": 1.8045,
         "alpha": 0.0041
       },
       {
         "date": "2026-08-20",
-        "cohort_strength": 1.6939,
+        "cohort_strength": 1.6927,
         "alpha": 0.0341
       },
       {
         "date": "2026-08-21",
-        "cohort_strength": 1.8523,
+        "cohort_strength": 1.8519,
         "alpha": 0.0117
       },
       {
         "date": "2026-08-22",
-        "cohort_strength": 1.6784,
+        "cohort_strength": 1.6778,
         "alpha": 0.0503
       },
       {
         "date": "2026-08-23",
-        "cohort_strength": 1.7652,
+        "cohort_strength": 1.764,
         "alpha": 0.0579
       },
       {
         "date": "2026-08-24",
-        "cohort_strength": 1.6881,
+        "cohort_strength": 1.6874,
         "alpha": 0.0205
       },
       {
         "date": "2026-08-25",
-        "cohort_strength": 1.6627,
+        "cohort_strength": 1.6611,
         "alpha": -0.0371
       },
       {
         "date": "2026-08-26",
-        "cohort_strength": 1.6245,
+        "cohort_strength": 1.6217,
         "alpha": -0.0373
       },
       {
         "date": "2026-08-27",
-        "cohort_strength": 1.6211,
+        "cohort_strength": 1.6193,
         "alpha": 0.0247
       },
       {
         "date": "2026-08-28",
-        "cohort_strength": 1.6203,
+        "cohort_strength": 1.6187,
         "alpha": 0.0016
       },
       {
         "date": "2026-08-29",
-        "cohort_strength": 1.6679,
+        "cohort_strength": 1.6661,
         "alpha": 0.0082
       },
       {
         "date": "2026-08-30",
-        "cohort_strength": 1.5385,
+        "cohort_strength": 1.5334,
         "alpha": 0.0164
       },
       {
         "date": "2026-08-31",
-        "cohort_strength": 1.4171,
+        "cohort_strength": 1.4161,
         "alpha": -0.034
       },
       {
         "date": "2026-09-01",
-        "cohort_strength": 1.4952,
-        "alpha": 0.0492
+        "cohort_strength": 1.4303,
+        "alpha": 0.0356
       },
       {
         "date": "2026-09-02",
-        "cohort_strength": 1.4213,
-        "alpha": 0.0027
+        "cohort_strength": 1.4207,
+        "alpha": 0.0116
       },
       {
         "date": "2026-09-03",
-        "cohort_strength": 1.4774,
-        "alpha": 0.0131
+        "cohort_strength": 1.4117,
+        "alpha": 0.0106
       },
       {
         "date": "2026-09-04",
-        "cohort_strength": 1.4073,
+        "cohort_strength": 1.4065,
         "alpha": 0.0028
       },
       {
         "date": "2026-09-05",
-        "cohort_strength": 1.4522,
-        "alpha": 0.0067
+        "cohort_strength": 1.4478,
+        "alpha": -0.0091
       },
       {
         "date": "2026-09-06",
         "cohort_strength": 1.4888,
-        "alpha": 0.0525
+        "alpha": 0.0584
       },
       {
         "date": "2026-09-07",
-        "cohort_strength": 1.3825,
+        "cohort_strength": 1.3816,
         "alpha": 0.0457
       },
       {
         "date": "2026-09-08",
-        "cohort_strength": 1.3955,
+        "cohort_strength": 1.3939,
         "alpha": 0.0073
       },
       {
         "date": "2026-09-09",
-        "cohort_strength": 1.4536,
+        "cohort_strength": 1.4523,
         "alpha": 0.0669
       },
       {
@@ -1977,173 +1977,178 @@
       },
       {
         "date": "2026-09-11",
-        "cohort_strength": 1.5553,
-        "alpha": -0.0025
+        "cohort_strength": 1.4786,
+        "alpha": -0.0181
       },
       {
         "date": "2026-09-12",
-        "cohort_strength": 1.6254,
-        "alpha": 0.0456
+        "cohort_strength": 1.4568,
+        "alpha": 0.0126
       },
       {
         "date": "2026-09-13",
-        "cohort_strength": 1.5369,
-        "alpha": -0.0148
+        "cohort_strength": 1.4247,
+        "alpha": 0.0092
       },
       {
         "date": "2026-09-14",
-        "cohort_strength": 1.5626,
-        "alpha": -0.0073
+        "cohort_strength": 1.4161,
+        "alpha": -0.0179
       },
       {
         "date": "2026-09-15",
-        "cohort_strength": 1.4697,
-        "alpha": 0.0094
+        "cohort_strength": 1.2741,
+        "alpha": 0.0059
       },
       {
         "date": "2026-09-16",
-        "cohort_strength": 1.5806,
-        "alpha": -0.0168
+        "cohort_strength": 1.3364,
+        "alpha": -0.0033
       },
       {
         "date": "2026-09-17",
-        "cohort_strength": 1.5173,
-        "alpha": 0.0347
+        "cohort_strength": 1.2823,
+        "alpha": 0.0221
       },
       {
         "date": "2026-09-18",
-        "cohort_strength": 1.5474,
-        "alpha": 0.0578
+        "cohort_strength": 1.3862,
+        "alpha": 0.05
       },
       {
         "date": "2026-09-19",
-        "cohort_strength": 1.5196,
-        "alpha": 0.0698
+        "cohort_strength": 1.4535,
+        "alpha": 0.0363
       },
       {
         "date": "2026-09-20",
-        "cohort_strength": 1.4884,
-        "alpha": 0.0075
+        "cohort_strength": 1.3821,
+        "alpha": 0.0129
       },
       {
         "date": "2026-09-21",
-        "cohort_strength": 1.3978,
+        "cohort_strength": 1.3983,
         "alpha": 0.001
       },
       {
         "date": "2026-09-22",
-        "cohort_strength": 1.4161,
-        "alpha": 0.057
+        "cohort_strength": 1.3875,
+        "alpha": 0.0421
       },
       {
         "date": "2026-09-23",
-        "cohort_strength": 1.4527,
-        "alpha": 0.0745
+        "cohort_strength": 1.3673,
+        "alpha": 0.0361
       },
       {
         "date": "2026-09-24",
-        "cohort_strength": 1.4665,
-        "alpha": -0.0386
+        "cohort_strength": 1.3027,
+        "alpha": -0.0455
       },
       {
         "date": "2026-09-25",
-        "cohort_strength": 1.5353,
-        "alpha": 0.0186
+        "cohort_strength": 1.3779,
+        "alpha": 0.029
       },
       {
         "date": "2026-09-26",
-        "cohort_strength": 1.4585,
-        "alpha": 0.0435
+        "cohort_strength": 1.4058,
+        "alpha": 0.0613
       },
       {
         "date": "2026-09-27",
-        "cohort_strength": 1.5713,
-        "alpha": 0.0133
+        "cohort_strength": 1.4482,
+        "alpha": -0.0079
       },
       {
         "date": "2026-09-28",
-        "cohort_strength": 1.6352,
-        "alpha": 0.0208
+        "cohort_strength": 1.4751,
+        "alpha": 0.022
       },
       {
         "date": "2026-09-29",
-        "cohort_strength": 1.4985,
+        "cohort_strength": 1.4991,
         "alpha": 0.0063
       },
       {
         "date": "2026-09-30",
-        "cohort_strength": 1.6143,
+        "cohort_strength": 1.6124,
         "alpha": -0.0007
       },
       {
         "date": "2026-10-01",
-        "cohort_strength": 1.6139,
+        "cohort_strength": 1.6126,
         "alpha": 0.0078
       },
       {
         "date": "2026-10-02",
-        "cohort_strength": 1.6551,
+        "cohort_strength": 1.6545,
         "alpha": -0.0189
       },
       {
         "date": "2026-10-03",
-        "cohort_strength": 1.6653,
+        "cohort_strength": 1.664,
         "alpha": -0.0103
       },
       {
         "date": "2026-10-04",
-        "cohort_strength": 1.5868,
+        "cohort_strength": 1.5854,
         "alpha": 0.0172
       },
       {
         "date": "2026-10-05",
-        "cohort_strength": 1.6162,
-        "alpha": 0.0066
+        "cohort_strength": 1.6147,
+        "alpha": 0.003
       },
       {
         "date": "2026-10-06",
-        "cohort_strength": 1.5247,
+        "cohort_strength": 1.5232,
         "alpha": 0.0057
       },
       {
         "date": "2026-10-07",
-        "cohort_strength": 1.3092,
+        "cohort_strength": 1.308,
         "alpha": -0.0093
       },
       {
         "date": "2026-10-08",
-        "cohort_strength": 1.586,
-        "alpha": 0.0119
+        "cohort_strength": 1.5289,
+        "alpha": -0.0126
       },
       {
         "date": "2026-10-09",
-        "cohort_strength": 1.5262,
-        "alpha": -0.0144
+        "cohort_strength": 1.4375,
+        "alpha": -0.0186
       },
       {
         "date": "2026-10-10",
-        "cohort_strength": 1.5431,
-        "alpha": 0.0298
+        "cohort_strength": 1.458,
+        "alpha": 0.0338
       },
       {
         "date": "2026-10-11",
-        "cohort_strength": 1.5065,
-        "alpha": 0.0423
+        "cohort_strength": 1.4006,
+        "alpha": 0.0403
       },
       {
         "date": "2026-10-12",
-        "cohort_strength": 1.5802,
-        "alpha": 0.0088
+        "cohort_strength": 1.4592,
+        "alpha": 0.0114
       },
       {
         "date": "2026-10-13",
-        "cohort_strength": 1.6722,
-        "alpha": -0.0066
+        "cohort_strength": 1.4599,
+        "alpha": -0.0205
       },
       {
         "date": "2026-10-14",
-        "cohort_strength": 1.6946,
-        "alpha": 0.0211
+        "cohort_strength": 1.4369,
+        "alpha": 0.0069
+      },
+      {
+        "date": "2026-10-15",
+        "cohort_strength": 1.4756,
+        "alpha": -0.0117
       }
     ],
     "disclosure": "위 그래프는 현재 코생지 v4.1 모델을 과거에 소급 적용해 계산한 결과입니다."
