@@ -1,7 +1,7 @@
 {
   "as_of_date": "2026-11-02",
-  "updated_date": "2026-11-03",
-  "publish_str": "2026-11-03 (화) 10:44 KST",
+  "updated_date": "2026-11-04",
+  "publish_str": "2026-11-04 (수) 09:06 KST",
   "summary": {
     "market": "코생지 TOP 10의 24시간 평균 변동은 +0.76%로, 비트코인 대비 -0.24%p 낮았다.",
     "pattern": "TOP 10 중 2개 종목이 과매도 구간(RSI 35 이하)에 분포하며, 소셜 관심도가 우세한 종목이 다수다.",
@@ -27,7 +27,7 @@
       "rank": 1,
       "symbol": "ETH",
       "logo_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-      "clm": 1.9369,
+      "clm": 1.9365,
       "h24": 0.88,
       "rsi": 33.4,
       "driver": "SOCIAL",
@@ -62,7 +62,7 @@
       "rank": 1,
       "symbol": "ETH",
       "logo_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-      "clm": 1.9369,
+      "clm": 1.9365,
       "h24": 0.88,
       "rsi": 33.4,
       "driver": "SOCIAL",
@@ -94,7 +94,7 @@
       "rank": 3,
       "symbol": "TRUMP",
       "logo_url": "https://coin-images.coingecko.com/coins/images/53746/large/trump.png?1737171561",
-      "clm": 1.4459,
+      "clm": 1.4451,
       "h24": 8.37,
       "rsi": 48.7,
       "driver": "SOCIAL",
@@ -126,7 +126,7 @@
       "rank": 5,
       "symbol": "PEPE",
       "logo_url": "https://coin-images.coingecko.com/coins/images/29850/large/pepe-token.jpeg?1696528776",
-      "clm": 1.3433,
+      "clm": 1.3438,
       "h24": -1.82,
       "rsi": 64.3,
       "driver": "ONCHAIN",
@@ -158,7 +158,7 @@
       "rank": 7,
       "symbol": "BCH",
       "logo_url": "https://coin-images.coingecko.com/coins/images/780/large/bitcoin-cash-circle.png?1696501932",
-      "clm": 0.9002,
+      "clm": 0.9005,
       "h24": -0.35,
       "rsi": 54.0,
       "driver": "SOCIAL",
@@ -224,7 +224,7 @@
       "rank": 1,
       "symbol": "ETH",
       "x": 33.4,
-      "y": 1.9369,
+      "y": 1.9365,
       "h24": 0.88,
       "quadrant": "관심",
       "label": "1위 ETH +0.9%"
@@ -242,7 +242,7 @@
       "rank": 3,
       "symbol": "TRUMP",
       "x": 48.7,
-      "y": 1.4459,
+      "y": 1.4451,
       "h24": 8.37,
       "quadrant": "관망",
       "label": "3위 TRUMP +8.4%"
@@ -260,7 +260,7 @@
       "rank": 5,
       "symbol": "PEPE",
       "x": 64.3,
-      "y": 1.3433,
+      "y": 1.3438,
       "h24": -1.82,
       "quadrant": "관망",
       "label": "5위 PEPE -1.8%"
@@ -278,7 +278,7 @@
       "rank": 7,
       "symbol": "BCH",
       "x": 54.0,
-      "y": 0.9002,
+      "y": 0.9005,
       "h24": -0.35,
       "quadrant": "관망",
       "label": "7위 BCH -0.4%"
@@ -326,11 +326,6 @@
     "unit": "cohort_strength = Top10 평균 CLM (코호트 강도) / alpha = Top10 24h 평균 − BTC 24h (contemporaneous 동시점 상대강도, 포워드 수익 아님)",
     "series": [
       {
-        "date": "2025-11-03",
-        "cohort_strength": 1.3645,
-        "alpha": 0.0149
-      },
-      {
         "date": "2025-11-04",
         "cohort_strength": 1.3654,
         "alpha": -0.0774
@@ -362,8 +357,8 @@
       },
       {
         "date": "2025-11-10",
-        "cohort_strength": 1.2592,
-        "alpha": -0.0034
+        "cohort_strength": 1.2933,
+        "alpha": 0.0063
       },
       {
         "date": "2025-11-11",
@@ -2142,7 +2137,7 @@
       },
       {
         "date": "2026-11-01",
-        "cohort_strength": 1.3193,
+        "cohort_strength": 1.3192,
         "alpha": -0.0108
       },
       {
